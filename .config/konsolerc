@@ -1,0 +1,97 @@
+HDMI-0 DVI-D-0 Window-Maximized 1920x1080=true
+HDMI-0 DVI-D-0 XPosition 1920x1080=0
+HDMI-0 DVI-D-0 YPosition 1920x1080=62
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAPFAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAHABzAGUAcwBzAGkAbwBuAFQAbwBvAGwAYgBhAHIBAAAB2f////8AAAAAAAAAAA==
+StatusBar=Disabled
+
+[Desktop Entry]
+DefaultProfile=Cozette.profile
+
+[DownloadDialog Settings]
+HDMI-0 DVI-D-0 Height 1080=400
+HDMI-0 DVI-D-0 Width 1920=700
+
+[Favorite Profiles]
+Favorites=Breath2.profile
+
+[KFileDialog Settings]
+Recent Files[$e]=1.jpg,file:$HOME/Documents/terminal_background.png,file:$HOME/Documents/terminal_background_scaled.png,file:$HOME/Documents/terminal_background_blurred.png,file:$HOME/Downloads/a0b9819f8ccf156e26508e0b4a1a4f72fe0bf440.png,file:$HOME/Downloads/a0b9819f8ccf156e26508e0b4a1a4f72fe0bf440.jpg,file:$HOME/Downloads/1.jpg
+Recent URLs[$e]=file:$HOME/Downloads/,file:$HOME/,file:$HOME/Documents/
+detailViewIconSize=0
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
+[Konsolewindow]
+ShowMenuBarByDefault=false
+
+[MainWindow]
+DP-0 DVI-D-0 HDMI-0 Height 1280x1024=994
+DP-0 DVI-D-0 HDMI-0 Height 1920x1080=1005
+DP-0 DVI-D-0 HDMI-0 Width 1280x1024=1280
+DP-0 DVI-D-0 HDMI-0 Width 1920x1080=1920
+DP-0 DVI-D-0 HDMI-0 Window-Maximized 1280x1024=true
+DP-0 DVI-D-0 HDMI-0 Window-Maximized 1920x1080=true
+DP-0 DVI-D-0 HDMI-0 Window-Maximized 800x600=true
+DP-0 DVI-D-0 HDMI-0 XPosition 1280x1024=861
+DP-0 DVI-D-0 HDMI-0 XPosition 1920x1080=2568
+DP-0 DVI-D-0 HDMI-0 XPosition 800x600=1280
+DP-0 DVI-D-0 HDMI-0 YPosition 1280x1024=69
+DP-0 DVI-D-0 HDMI-0 YPosition 1920x1080=13
+DP-0 DVI-D-0 HDMI-0 YPosition 800x600=75
+DP-0 HDMI-0 DVI-D-0 Window-Maximized 1280x1024=true
+DP-0 HDMI-0 DVI-D-0 Window-Maximized 1920x1080=true
+DP-0 HDMI-0 DVI-D-0 XPosition 1280x1024=0
+DP-0 HDMI-0 DVI-D-0 XPosition 1920x1080=1282
+DP-0 HDMI-0 DVI-D-0 YPosition 1280x1024=58
+DP-0 HDMI-0 DVI-D-0 YPosition 1920x1080=18
+DVI-D-0 HDMI-0 DP-0 Window-Maximized 1920x1080=true
+DVI-D-0 HDMI-0 DP-0 XPosition 1920x1080=3202
+DVI-D-0 HDMI-0 DP-0 YPosition 1920x1080=18
+DVI-D-0 HDMI-0 Height 1080=1005
+DVI-D-0 HDMI-0 Height 1280x1024=994
+DVI-D-0 HDMI-0 Height 1920x1080=1005
+DVI-D-0 HDMI-0 Width 1280x1024=1280
+DVI-D-0 HDMI-0 Width 1920=1920
+DVI-D-0 HDMI-0 Width 1920x1080=1920
+DVI-D-0 HDMI-0 Window-Maximized 1280x1024=true
+DVI-D-0 HDMI-0 Window-Maximized 1920x1080=true
+DVI-D-0 HDMI-0 XPosition=0
+DVI-D-0 HDMI-0 XPosition 1280x1024=0
+DVI-D-0 HDMI-0 YPosition=0
+DVI-D-0 HDMI-0 YPosition 1280x1024=58
+DVI-D-0 Height 1920x1080=1005
+DVI-D-0 Width 1920x1080=1920
+DVI-D-0 Window-Maximized 1920x1080=true
+DVI-D-0 XPosition 1920x1080=0
+DVI-D-0 YPosition 1920x1080=75
+HDMI-0 DVI-D-0 Height 1080=1004
+HDMI-0 DVI-D-0 Height 1920x1080=1005
+HDMI-0 DVI-D-0 Width 1920=1920
+HDMI-0 DVI-D-0 Width 1920x1080=1280
+HDMI-0 DVI-D-0 Window-Maximized 1024x768=true
+HDMI-0 DVI-D-0 Window-Maximized 1080x1920=true
+HDMI-0 DVI-D-0 Window-Maximized 1680x1050=true
+HDMI-0 DVI-D-0 Window-Maximized 1920x1080=true
+HDMI-0 DVI-D-0 Window-Maximized 720x1280=true
+HDMI-0 DVI-D-0 XPosition=0
+HDMI-0 DVI-D-0 XPosition 1024x768=0
+HDMI-0 DVI-D-0 XPosition 1680x1050=0
+HDMI-0 DVI-D-0 XPosition 1920x1080=0
+HDMI-0 DVI-D-0 YPosition=76
+HDMI-0 DVI-D-0 YPosition 1024x768=76
+HDMI-0 DVI-D-0 YPosition 1680x1050=75
+HDMI-0 DVI-D-0 YPosition 1920x1080=75
+HDMI-0 Window-Maximized 1280x1024=true
+HDMI-0 XPosition 1280x1024=0
+HDMI-0 YPosition 1280x1024=75
+Height 1080=1005
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAA6sAAAQIAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAAAAAAHABzAGUAcwBzAGkAbwBuAFQAbwBvAGwAYgBhAHIAAAAB2f////8AAAAAAAAAAA==
+StatusBar=Disabled
+ToolBarsMovable=Disabled
+Width 1920=1920
+
+[TabBar]
+TabBarPosition=Top
