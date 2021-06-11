@@ -104,3 +104,4 @@ neofetch
 source "$HOME/.cargo/env"
 setxkbmap -option caps:swapescape
 export EDITOR="nvim"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
