@@ -117,7 +117,7 @@ bindsym $mod+Shift+minus move container to workspace number $media_workspace
 bindsym $mod+Shift+egrave move container to workspace number $ws7
 bindsym $mod+Shift+underscore move container to workspace number $ws8
 bindsym $mod+Shift+ccedilla move container to workspace number $ws9
-bindsym $mod+Shift+agrave move container to workspace number $terminal_workspace0
+bindsym $mod+Shift+agrave move container to workspace number $unknown_workspace
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -128,12 +128,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
@@ -158,7 +152,7 @@ bar {
     position top
     status_command i3blocks -c $HOME/.config/i3blocks/i3blocks.conf
     strip_workspace_numbers yes
-    # tray_output nonprimary
+    tray_output primary
 
     colors {
         background #282A36
@@ -175,84 +169,9 @@ bar {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command i3status
-# }
-
 ##################################
 # Custom config
 ##################################
- 
-exec_always --no-startup-id setxkbmap fr
-# exec --no-startup-id wmctrl -c Plasma
-# for_window [title="Desktop - Plasma"] kill; floating enable; border none
-
-bindsym $mod+shift+x exec $HOME/.scripts/lock_screen.sh $HOME/.scripts/images/lock.png
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-# Monitors layout
-exec_always xrandr --output DVI-D-0 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-1 --off
-
-# Allow steam extra windows to be floating
-for_window [class="^Steam$" title="^Friends$"] floating enable
-for_window [class="^Steam$" title="Steam - News"] floating enable
-for_window [class="^Steam$" title=".* - Chat"] floating enable
-for_window [class="^Steam$" title="^Settings$"] floating enable
-for_window [class="^Steam$" title=".* - event started"] floating enable
-for_window [class="^Steam$" title=".* CD key"] floating enable
-for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
-for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
-for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
-for_window [title="^Steam Keyboard$"] floating enable
-
-# Assign windows to the right workspaces
-for_window [class="Spotify"] move to workspace $media_workspace
-for_window [class="firefox"] move to workspace $browser_workspace
-assign [class="firefox"] $browser_workspace
-assign [class="discord"] $chat_workspace
-assign [class="Steam"] $game_workspace
-assign [class="konsole"] $terminal_workspace
-assign [class="^Minecraft.*$"] $game_workspace
-
-# Open windows on startup
-exec spotify
-exec discord
-exec firefox
-exec konsole
-
-# Assign workspaces to monitors
-set $monitor_middle "DP-0"
-set $monitor_left "HDMI-0"
-set $monitor_right "DVI-D-0"
-workspace $terminal_workspace output $monitor_middle
-workspace $browser_workspace output $monitor_left
-workspace $game_workspace output $monitor_middle
-workspace $chat_workspace output $monitor_right
-workspace $file_workspace output $monitor_middle
-workspace $media_workspace output $monitor_middle
-
-# Move workspaces to another monitor
-bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
-bindsym $mod+Ctrl+eacute move workspace to output $monitor_middle
-bindsym $mod+Ctrl+quotedbl move workspace to output $monitor_right
-
-# Notification daemon so Discord doesn't freeze
-exec --no-startup-id dunst
-
-# Copy paste
-exec --no-startup-id clipit
-
-# Fancy things
-exec_always picom --experimental-backends
-
-# Desktop Wallpaper
-exec_always feh --bg-fill /home/morgan/Pictures/wallpapers/HollowKnight4.jpg
 
 # Gaps
 for_window [class=".*"] gaps inner all set 10
@@ -269,8 +188,76 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
-# Mouse_warping none
-exec kbuildsycoca4
+exec_always --no-startup-id setxkbmap fr
+# exec --no-startup-id wmctrl -c Plasma
+# for_window [title="Desktop - Plasma"] kill; floating enable; border none
+
+# Compositor
+exec_always picom --experimental-backends
+
+bindsym $mod+shift+x exec $HOME/.scripts/lock_screen.sh $HOME/.scripts/images/lock.png
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Monitors layout
+exec xrandr --output DVI-D-0 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-1 --off
+
+# Assign workspaces to monitors
+set $monitor_middle "DP-0"
+set $monitor_left "HDMI-0"
+set $monitor_right "DVI-D-0"
+workspace $terminal_workspace output $monitor_middle
+workspace $browser_workspace output $monitor_left
+workspace $game_workspace output $monitor_middle
+workspace $chat_workspace output $monitor_right
+workspace $file_workspace output $monitor_middle
+workspace $media_workspace output $monitor_middle
+
+# Allow steam extra windows to be floating
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+# Assign windows to the right workspaces
+# assign [class="spotify"] $media_workspace
+assign [class="^firefox$"] $browser_workspace
+assign [class="^discord$"] $chat_workspace
+assign [class="^.*Steam.*$"] $game_workspace
+assign [class="^konsole$"] $terminal_workspace
+assign [class="^.*Minecraft.*$"] $game_workspace
+
+for_window [class="^Spotify$"] move to workspace $media_workspace
+# for_window [class="^(Navigator|firefox)$"] move to workspace $browser_workspace
+
+# Open windows on startup
+exec --no-startup-id spotify
+exec --no-startup-id firefox
+exec --no-startup-id discord
+exec --no-startup-id konsole
+
+# Move workspaces to another monitor
+bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
+bindsym $mod+Ctrl+eacute move workspace to output $monitor_middle
+bindsym $mod+Ctrl+quotedbl move workspace to output $monitor_right
+
+# Notification daemon so Discord doesn't freeze
+exec --no-startup-id dunst
+
+# Copy paste
+exec --no-startup-id clipit
+
+# Desktop Wallpaper
+exec_always feh --bg-fill /home/morgan/Pictures/wallpapers/HollowKnight4.jpg
 
 # Mouse sensitivty
 exec xinput set-prop 13 302 -0.8
@@ -284,3 +271,5 @@ bindsym $mod+Ctrl+Print exec spectacle -b -c -m
 bindsym $mod+Print exec spectacle -b -c -a -e
 # Custom region screenshot
 bindsym Print exec spectacle -b -c -r
+
+# exec i3-msg restart
