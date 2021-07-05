@@ -8,13 +8,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec --no-startup-id nm-applet
 
-# Use playerctl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -197,6 +190,13 @@ exec_always picom --experimental-backends
 
 bindsym $mod+shift+x exec $HOME/.scripts/lock_screen.sh $HOME/.scripts/images/lock.png
 
+# Use playerctl to adjust volume in PulseAudio.
+set $refresh_i3blocks pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3blocks
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -235,15 +235,18 @@ assign [class="^discord$"] $chat_workspace
 assign [class="^.*Steam.*$"] $game_workspace
 assign [class="^konsole$"] $terminal_workspace
 assign [class="^.*Minecraft.*$"] $game_workspace
+assign [class="^signal$"] $chat_workspace
 
 for_window [class="^Spotify$"] move to workspace $media_workspace
 # for_window [class="^(Navigator|firefox)$"] move to workspace $browser_workspace
 
 # Open windows on startup
 exec --no-startup-id spotify
-exec --no-startup-id firefox
+# exec --no-startup-id firefox
 exec --no-startup-id discord
-exec --no-startup-id konsole
+# exec --no-startup-id konsole
+exec --no-startup-id steam
+exec --no-startup-id signal-desktop
 
 # Move workspaces to another monitor
 bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
@@ -260,7 +263,7 @@ exec --no-startup-id clipit
 exec_always feh --bg-fill /home/morgan/Pictures/wallpapers/HollowKnight4.jpg
 
 # Mouse sensitivty
-exec xinput set-prop 13 302 -0.8
+# exec xinput set-prop 13 302 -0.8
 
 # Screenshots shortcuts
 # Full desktop screenshot
@@ -273,3 +276,20 @@ bindsym $mod+Print exec spectacle -b -c -a -e
 bindsym Print exec spectacle -b -c -r
 
 # exec i3-msg restart
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+        bindsym e exec --no-startup-id i3exit logout, mode "default"
+        bindsym s exec --no-startup-id i3exit suspend, mode "default"
+        bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+        bindsym r exec --no-startup-id i3exit reboot, mode "default"
+        bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+# back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
+# Plasma is kil
+for_window [title="Desktop — Plasma"] kill; floating enable; border none

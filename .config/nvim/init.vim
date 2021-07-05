@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'tikhomirov/vim-glsl'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
