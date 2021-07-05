@@ -8,6 +8,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec --no-startup-id nm-applet
 
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -140,7 +145,7 @@ mode "resize" {
 
 bar {
     font pango: CozetteVector 12
-    # i3bar_command i3bar
+    i3bar_command i3bar -t
     # output primary
     position top
     status_command i3blocks -c $HOME/.config/i3blocks/i3blocks.conf
@@ -148,13 +153,13 @@ bar {
     tray_output primary
 
     colors {
-        background #282A36
+        background #282A3000
         statusline #F8F8F2
         separator  #44475A
 
-        focused_workspace  #44475A #44475A #F8F8F2
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282A36 #282A36 #BFBFBF
+        focused_workspace  #44475A99 #44475A99 #F8F8F2
+        active_workspace   #282A3600 #44475A00 #F8F8F2
+        inactive_workspace #282A3000 #282A3600 #BFBFBF
         urgent_workspace   #FF5555 #FF5555 #F8F8F2
         binding_mode       #FF5555 #FF5555 #F8F8F2
     }
@@ -202,6 +207,10 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
 # Monitors layout
 exec xrandr --output DVI-D-0 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-1 --off
 
@@ -234,6 +243,7 @@ assign [class="^firefox$"] $browser_workspace
 assign [class="^discord$"] $chat_workspace
 assign [class="^.*Steam.*$"] $game_workspace
 assign [class="^konsole$"] $terminal_workspace
+assign [class="^Alacritty$"] $terminal_workspace
 assign [class="^.*Minecraft.*$"] $game_workspace
 assign [class="^signal$"] $chat_workspace
 
@@ -242,11 +252,15 @@ for_window [class="^Spotify$"] move to workspace $media_workspace
 
 # Open windows on startup
 exec --no-startup-id spotify
-# exec --no-startup-id firefox
+exec --no-startup-id firefox
 exec --no-startup-id discord
-# exec --no-startup-id konsole
+<<<<<<< Updated upstream
 exec --no-startup-id steam
 exec --no-startup-id signal-desktop
+=======
+exec --no-startup-id konsole
+>>>>>>> Stashed changes
+exec --no-startup-id alacritty
 
 # Move workspaces to another monitor
 bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
@@ -260,7 +274,7 @@ exec --no-startup-id dunst
 exec --no-startup-id clipit
 
 # Desktop Wallpaper
-exec_always feh --bg-fill /home/morgan/Pictures/wallpapers/HollowKnight4.jpg
+exec_always feh --bg-fill /home/morgan/Pictures/wallpapers/nature2.jpg
 
 # Mouse sensitivty
 # exec xinput set-prop 13 302 -0.8
@@ -275,7 +289,6 @@ bindsym $mod+Print exec spectacle -b -c -a -e
 # Custom region screenshot
 bindsym Print exec spectacle -b -c -r
 
-# exec i3-msg restart
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -291,5 +304,4 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 
-# Plasma is kil
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
+# exec_always --no-startup-id  $HOME/.config/polybar/launch.sh
