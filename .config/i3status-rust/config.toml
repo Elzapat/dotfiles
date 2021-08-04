@@ -1,5 +1,14 @@
-theme = "solarized-dark"
 icons = "awesome"
+
+[theme]
+name = "solarized-dark"
+[theme.overrides]
+idle_bg = "#202020" # base03
+info_fg = "#202020" # base03
+good_fg = "#202020" # base03 # before -----> #002b36
+# warning_bg = "#DFFFOO" # yellow
+warning_fg = "#202020" # base03
+separator = "<span font='16'>\ue0b2</span>"
 
 [[block]]
 block = "focused_window"
@@ -13,14 +22,14 @@ smart_trim = true
 hide_when_empty = true
 dynamic_width = true
 format = "{artist} - {title} "
+[block.theme_overrides]
+idle_bg = "#303030"
 
 [[block]]
 block = "sound"
-
-[[block]]
-block = "battery"
-interval = 10
-format = "{percentage} {time}"
+[block.theme_overrides]
+idle_bg = "#303030"
+idle_fg = "#93a1a1"
 
 [[block]]
 block = "disk_space"
@@ -31,6 +40,11 @@ unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage} {time}"
 
 [[block]]
 block = "memory"
@@ -47,21 +61,47 @@ block = "load"
 interval = 1
 format = "{1m}"
 
+[[block]]
+block = "weather"
+format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
+service = { name = "openweathermap", api_key = "75d2078ab5c8b6e4a04478153fe3d441", city_id = "3030300", units = "metric" }
+[block.theme_overrides]
+idle_fg = "#202020"
+idle_bg = "#268bd2"
+
 # [[block]]
 # block = "hueshift"
 # hue_shifter = "redshift"
 # step = 50
 
 [[block]]
-block = "backlight"
-
-[[block]]
 block = "time"
 interval = 60
 format = "%a %d/%m %R"
+[block.theme_overrides]
+idle_bg = "#DFFF00"
+idle_fg = "#202020"
 
-# [[block]]
-# block = "custom"
-# command = "echo '{\"text\":\"<big>\ue0b2</big>\",\"color\":\"#DFFF00\"}'"
-# # command = "echo '{\"icon\":\"weather_thunder\",\"state\":\"Critical\", \"text\": \"Danger!\"}'"
-# json = true
+[[block]]
+block = "custom"
+command = "echo ''"
+interval = "once"
+[block.theme_overrides]
+idle_bg = "#B55F2B"
+idle_fg = "#202020"
+
+[[block]]
+block = "custom"
+command = "echo ''"
+interval = "once"
+[block.theme_overrides]
+idle_bg = "#7E182D"
+idle_fg = "#202020"
+
+[[block]]
+block = "custom"
+command = "echo ''"
+interval = "once"
+[block.theme_overrides]
+idle_bg = "#202020"
+idle_fg = "#7E182D"

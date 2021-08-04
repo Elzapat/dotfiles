@@ -70,9 +70,14 @@ ZSH_THEME="crcandy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-vi-mode rust)
+plugins=(git rust)
 
 source $ZSH/oh-my-zsh.sh
+
+_fix_cursor() {
+   echo -ne '\e[6 q'
+}
+precmd_functions+=(_fix_cursor)
 
 # User configuration
 
@@ -99,9 +104,26 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="nvim /home/morgan/.zshrc"
+alias nvimconfig="nvim /home/morgan/.config/nvim/init.vim"
+alias i3config="nvim /home/morgan/.config/i3/config"
+alias picomconfig="nvim /home/morgan/.config/picom/picom.conf"
+alias tmuxconfig="nvim /home/morgan/.config/tmux/tmux.conf"
 
-neofetch
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t tmux || tmux new -s tmux 
+fi
+
+source /usr/share/nvm/init-nvm.sh
+
+export EDITOR=nvim
+export QT_STYLE_OVERRIDE=adwaita
+export TERM=screen-256color
+# if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+
 source "$HOME/.cargo/env"
 setxkbmap -option caps:swapescape
-export EDITOR="nvim"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+neofetch
+

@@ -14,6 +14,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'tikhomirov/vim-glsl'
 Plug 'cespare/vim-toml'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+" Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
@@ -22,11 +24,12 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 colorscheme solarized8
+set nocompatible
 
 if exists('+termguicolors')
-    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
 endif
 
 syntax on
@@ -46,40 +49,60 @@ set relativenumber
 set number
 set cursorline
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=0
 set expandtab
 set incsearch
 set nohlsearch
 set smartcase
-set colorcolumn=120
+set colorcolumn=80
 set lazyredraw
 set splitbelow
 set splitright
 set clipboard+=unnamedplus
+set noshowmode
+set mouse=a
+set ttimeoutlen=10
 
 " remaps
 
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-m> :tabnext<CR>
 nnoremap K J
-nnoremap <leader>rl :source $MYVIMRC<CR>
+nnoremap <leader>r :source $MYVIMRC<CR>
 noremap m l
 noremap l k
 noremap k j
 noremap j h
+noremap <leader>m <C-w>l
+noremap <leader>l <C-w>k
+noremap <leader>k <C-w>j
+noremap <leader>j <C-w>h
 
+function! Set2SpacesTab()
+    set tabstop=2
+    set shiftwidth=2
+endfunction
+
+nnoremap <leader>é :call Set2SpacesTab()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline config
+""""""""""""""""""""""""""""""""""""""""
+" let g:tmuxline_preset = 'custom'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " cxx highlight config
 """"""""""""""""""""""""""""""""""""""""
-let g:lsp_cxx_hl_use_nvim_text_props = 1 
+let g:lsp_cxx_hl_use_nvim_text_props = 1
 highlight LspCxxHlSymVariable ctermfg=Gray guifg=Gray
 highlight LspCxxHlGroupMemberVariable ctermfg=Gray guifg=Gray
 highlight LspCxxHlGroupNamespace ctermfg=130 guifg=#E62F22
 highlight LspCxxHlSymClass ctermfg=28 guifg=Green
 highlight Type ctermfg=28 guifg=Green
 highlight LspCxxHlGroupEnumConstant ctermfg=26 guifg=Blue
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrl-p config
@@ -104,7 +127,7 @@ nnoremap <leader>o :NERDTreeToggle<CR>
 " CoC config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html',
   \ 'coc-json', 'coc-prettier', 'coc-tsserver']
 
 " if hidden is not set, TextEdit might fail.
@@ -149,3 +172,5 @@ nmap <silent> gr <Plug>(coc-references)
 " gui settings
 """"""""
 set guifont=CozetteVector:h15
+
+set cmdheight=1
