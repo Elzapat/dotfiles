@@ -15,6 +15,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'tikhomirov/vim-glsl'
 Plug 'cespare/vim-toml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'kien/ctrlp.vim'
 " Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
@@ -65,8 +66,8 @@ set ttimeoutlen=10
 
 " remaps
 
-nnoremap <C-j> :tabprevious<CR>
-nnoremap <C-m> :tabnext<CR>
+nnoremap <C-j> :bprevious<CR>
+nnoremap <C-m> :bnext<CR>
 nnoremap K J
 nnoremap <leader>r :source $MYVIMRC<CR>
 noremap m l
@@ -90,6 +91,7 @@ nnoremap <leader>é :call Set2SpacesTab()<CR>
 """"""""""""""""""""""""""""""""""""""""
 " let g:tmuxline_preset = 'custom'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 
@@ -108,10 +110,28 @@ highlight LspCxxHlGroupEnumConstant ctermfg=26 guifg=Blue
 " ctrl-p config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_user_command = ['.git/',
-  \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_user_command = ['.git/',
+"   \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+
+" Use the nearest .git directory as the cwd
+" This makes a lot of sense if you are working on a project that is in version
+" control. It also supports works with .svn, .hg, .bzr.
+let g:ctrlp_working_path_mode = 'r'
+
+" Use a leader instead of the actual named binding
+nmap <leader>p :CtrlP<cr>
+
+" Easy bindings for its various modes
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+nmap <leader>bs :CtrlPMRU<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
