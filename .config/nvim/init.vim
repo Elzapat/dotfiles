@@ -63,6 +63,14 @@ set clipboard+=unnamedplus
 set noshowmode
 set mouse=a
 set ttimeoutlen=10
+set pumblend=25
+
+" highlight clear CursorLineNr
+" highlight clear CursorLine
+
+highlight CursorLine cterm=underline term=underline ctermbg=gray guibg=#202020
+highlight CursorLineNr cterm=underline term=underline ctermbg=gray guibg=#202020
+highlight ColorColumn cterm=underline term=underline ctermbg=gray guibg=#202020
 
 " remaps
 
