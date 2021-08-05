@@ -55,7 +55,7 @@ set expandtab
 set incsearch
 set nohlsearch
 set smartcase
-set colorcolumn=80
+set colorcolumn=200
 set lazyredraw
 set splitbelow
 set splitright
@@ -64,13 +64,17 @@ set noshowmode
 set mouse=a
 set ttimeoutlen=10
 set pumblend=25
+" set fillchars+=vert:\|
 
 " highlight clear CursorLineNr
 " highlight clear CursorLine
 
-highlight CursorLine cterm=underline term=underline ctermbg=gray guibg=#202020
-highlight CursorLineNr cterm=underline term=underline ctermbg=gray guibg=#202020
-highlight ColorColumn cterm=underline term=underline ctermbg=gray guibg=#202020
+highlight CursorLine guibg=#202020
+highlight CursorLineNr guibg=#202020
+highlight ColorColumn guibg=#202020
+highlight VertSplit guibg=#202020 guifg=#202020
+highlight StatusLineNR guibg=#202020 guifg=#202020
+
 
 " remaps
 
