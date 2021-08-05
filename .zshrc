@@ -113,8 +113,8 @@ alias su="su -p"
 alias rm="rm -iv"
 alias re-source="source ~/.zshrc"
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t tmux || tmux new -s tmux 
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
+  [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
 fi
 
 source /usr/share/nvm/init-nvm.sh
