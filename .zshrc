@@ -104,11 +104,14 @@ precmd_functions+=(_fix_cursor)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshconfig="nvim /home/morgan/.zshrc"
-alias nvimconfig="nvim /home/morgan/.config/nvim/init.vim"
-alias i3config="nvim /home/morgan/.config/i3/config"
-alias picomconfig="nvim /home/morgan/.config/picom/picom.conf"
-alias tmuxconfig="nvim /home/morgan/.config/tmux/tmux.conf"
+alias zshconf="nvim /home/morgan/.zshrc"
+alias nvimconf="nvim /home/morgan/.config/nvim/init.vim"
+alias i3conf="nvim /home/morgan/.config/i3/config"
+alias picomconf="nvim /home/morgan/.config/picom/picom.conf"
+alias tmuxconf="nvim /home/morgan/.config/tmux/tmux.conf"
+alias su="su -p"
+alias rm="rm -iv"
+alias re-source="source ~/.zshrc"
 
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t tmux || tmux new -s tmux 
