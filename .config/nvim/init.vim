@@ -69,12 +69,13 @@ set pumblend=25
 " highlight clear CursorLineNr
 " highlight clear CursorLine
 
-highlight CursorLine guibg=#202020
-highlight CursorLineNr guibg=#202020
-highlight ColorColumn guibg=#202020
-highlight VertSplit guibg=#202020 guifg=#202020
-highlight StatusLineNR guibg=#202020 guifg=#202020
-
+hi CursorLine guibg=#202020
+hi CursorLineNr guibg=#202020
+hi ColorColumn guibg=#202020
+hi VertSplit guibg=#202020 guifg=#202020
+hi StatusLineNR guibg=#202020 guifg=#202020
+hi StatusLine guibg=#202020 guifg=#202020
+hi StatusLineNC guibg=#202020 guifg=#202020
 
 " remaps
 
