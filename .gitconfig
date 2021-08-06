@@ -1,0 +1,7 @@
+[user]
+	email = mistigri.van@gmail.com
+	name = Morgan Van Amerongen
+[merge]
+	tool = nvimdiff
+[init]
+	defaultBranch = main
