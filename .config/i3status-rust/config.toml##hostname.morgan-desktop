@@ -12,12 +12,12 @@ separator = "<span font='16'>\ue0b2</span>"
 
 [[block]]
 block = "focused_window"
-max_width = 50
+max_width = 55
 show_marks = "visible"
 
 [[block]]
 block = "music"
-max_width = 50
+max_width = 55
 smart_trim = true
 hide_when_empty = true
 dynamic_width = true
@@ -27,9 +27,9 @@ idle_bg = "#303030"
 
 [[block]]
 block = "sound"
-[block.theme_overrides]
-idle_bg = "#303030"
-idle_fg = "#93a1a1"
+# [block.theme_overrides]
+# idle_bg = "#303030"
+# idle_fg = "#93a1a1"
 
 [[block]]
 block = "disk_space"
@@ -40,11 +40,6 @@ unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
-
-[[block]]
-block = "battery"
-interval = 10
-format = "{percentage} {time}"
 
 [[block]]
 block = "memory"
@@ -87,7 +82,7 @@ block = "custom"
 command = "echo ''"
 interval = "once"
 [block.theme_overrides]
-idle_bg = "#B55F2B"
+idle_bg = "#B24C00"
 idle_fg = "#202020"
 
 [[block]]
@@ -95,7 +90,7 @@ block = "custom"
 command = "echo ''"
 interval = "once"
 [block.theme_overrides]
-idle_bg = "#7E182D"
+idle_bg = "#7A0000"
 idle_fg = "#202020"
 
 [[block]]
@@ -104,4 +99,4 @@ command = "echo ''"
 interval = "once"
 [block.theme_overrides]
 idle_bg = "#202020"
-idle_fg = "#7E182D"
+idle_fg = "#7A0000"
