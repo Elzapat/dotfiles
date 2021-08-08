@@ -16,6 +16,7 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'cespare/vim-toml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'kien/ctrlp.vim'
+Plug 'ron-rs/ron.vim'
 " Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
