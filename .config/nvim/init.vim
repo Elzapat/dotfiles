@@ -1,32 +1,31 @@
+let hostname=system("cat /etc/hostname")
+let is_pi=stridx(hostname, "morgan-pi") != -1
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-surround'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
-Plug 'rust-lang/rust.vim'
-Plug 'lifepillar/vim-solarized8'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'tikhomirov/vim-glsl'
 Plug 'cespare/vim-toml'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'kien/ctrlp.vim'
 Plug 'ron-rs/ron.vim'
 " Plug 'edkolev/tmuxline.vim'
+Plug 'lifepillar/vim-solarized8'
+
+if (!is_pi)
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+    Plug 'preservim/nerdtree'
+    Plug 'jackguo380/vim-lsp-cxx-highlight'
+    Plug 'tikhomirov/vim-glsl'
+    Plug 'rust-lang/rust.vim'
+endif
 
 call plug#end()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" look n feel
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-colorscheme solarized8
-set nocompatible
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -34,12 +33,13 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+colorscheme solarized8
+
+set nocompatible
+
 syntax on
 syntax enable
 filetype plugin indent on
-
-hi Normal guibg=NONE ctermbg=NONE
-highlight clear LineNr
 
 " let g:gruvbox_contrast_dark = "hard"
 
@@ -65,11 +65,15 @@ set noshowmode
 set mouse=a
 set ttimeoutlen=10
 set pumblend=25
+set guifont=CozetteVector:h15
+set cmdheight=1
 " set fillchars+=vert:\|
 
 " highlight clear CursorLineNr
 " highlight clear CursorLine
 
+hi Normal guibg=NONE ctermbg=NONE
+hi clear LineNr
 hi CursorLine guibg=#202020
 hi CursorLineNr guibg=#202020
 hi ColorColumn guibg=#202020
@@ -112,99 +116,100 @@ let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " cxx highlight config
 """"""""""""""""""""""""""""""""""""""""
-let g:lsp_cxx_hl_use_nvim_text_props = 1
-highlight LspCxxHlSymVariable ctermfg=Gray guifg=Gray
-highlight LspCxxHlGroupMemberVariable ctermfg=Gray guifg=Gray
-highlight LspCxxHlGroupNamespace ctermfg=130 guifg=#E62F22
-highlight LspCxxHlSymClass ctermfg=28 guifg=Green
-highlight Type ctermfg=28 guifg=Green
-highlight LspCxxHlGroupEnumConstant ctermfg=26 guifg=Blue
+if (!is_pi)
+    let g:lsp_cxx_hl_use_nvim_text_props = 1
+    highlight LspCxxHlSymVariable ctermfg=Gray guifg=Gray
+    highlight LspCxxHlGroupMemberVariable ctermfg=Gray guifg=Gray
+    highlight LspCxxHlGroupNamespace ctermfg=130 guifg=#E62F22
+    highlight LspCxxHlSymClass ctermfg=28 guifg=Green
+    highlight Type ctermfg=28 guifg=Green
+    highlight LspCxxHlGroupEnumConstant ctermfg=26 guifg=Blue
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrl-p config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_user_command = ['.git/',
-"   \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-" Setup some default ignores
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-\}
+if (!is_pi)
+    " let g:ctrlp_cmd = 'CtrlP'
+    " let g:ctrlp_map = '<c-p>'
+    " let g:ctrlp_user_command = ['.git/',
+    "   \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+    " Setup some default ignores
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+      \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+    \}
 
-" Use the nearest .git directory as the cwd
-" This makes a lot of sense if you are working on a project that is in version
-" control. It also supports works with .svn, .hg, .bzr.
-let g:ctrlp_working_path_mode = 'r'
+    " Use the nearest .git directory as the cwd
+    " This makes a lot of sense if you are working on a project that is in version
+    " control. It also supports works with .svn, .hg, .bzr.
+    let g:ctrlp_working_path_mode = 'r'
 
-" Use a leader instead of the actual named binding
-nmap <leader>p :CtrlP<cr>
+    " Use a leader instead of the actual named binding
+    nmap <leader>p :CtrlP<cr>
 
-" Easy bindings for its various modes
-nmap <leader>bb :CtrlPBuffer<cr>
-nmap <leader>bm :CtrlPMixed<cr>
-nmap <leader>bs :CtrlPMRU<cr>
+    " Easy bindings for its various modes
+    nmap <leader>bb :CtrlPBuffer<cr>
+    nmap <leader>bm :CtrlPMixed<cr>
+    nmap <leader>bs :CtrlPMRU<cr>
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:NERDTreeMinimalUI = 1
-" Automaticaly close nvim if NERDTree is only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nnoremap <leader>o :NERDTreeToggle<CR>
+if (!is_pi)
+    let g:NERDTreeMinimalUI = 1
+    " Automaticaly close nvim if NERDTree is only thing left open
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    nnoremap <leader>o :NERDTreeToggle<CR>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CoC config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html',
-  \ 'coc-json', 'coc-prettier', 'coc-tsserver']
+if (!is_pi)
+    let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html',
+      \ 'coc-json', 'coc-prettier', 'coc-tsserver']
 
-" if hidden is not set, TextEdit might fail.
-set hidden
-" Better display for messages
-set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
+    " if hidden is not set, TextEdit might fail.
+    set hidden
+    " Better display for messages
+    set cmdheight=2
+    " Smaller updatetime for CursorHold & CursorHoldI
+    set updatetime=300
+    " don't give |ins-completion-menu| messages.
+    set shortmess+=c
+    " always show signcolumns
+    set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not
-" mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " Use tab for trigger completion with characters ahead and navigate.
+    " Use command ':verbose imap <tab>' to make sure tab is not
+    " mapped by other plugin.
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+    " Use <c-space> to trigger completion.
+    inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+    " Use `[c` and `]c` to navigate diagnostics
+    nmap <silent> [c <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-""""""""
-" gui settings
-""""""""
-set guifont=CozetteVector:h15
-
-set cmdheight=1
+    " Remap keys for gotos
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+endif
