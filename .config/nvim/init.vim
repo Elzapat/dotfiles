@@ -66,7 +66,6 @@ set mouse=a
 set ttimeoutlen=10
 set pumblend=25
 set guifont=CozetteVector:h15
-set cmdheight=1
 " set fillchars+=vert:\|
 
 " highlight clear CursorLineNr
@@ -213,3 +212,5 @@ if (!is_pi)
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
 endif
+
+set cmdheight=1
