@@ -68,8 +68,9 @@ set ttimeoutlen=10
 set pumblend=25
 set guifont=CozetteVector:h15
 set encoding=UTF-8
-" set fillchars=stl:\ ,stlnc:\ ,fold:\
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 " set fillchars+=vert:\|
+" set fillchars=stl:\ ,stlnc:\ ,fold:\
 
 " highlight clear CursorLineNr
 " highlight clear CursorLine

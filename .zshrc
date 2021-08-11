@@ -113,6 +113,8 @@ alias su="su -p"
 alias rm="rm -iv"
 alias re-source="source ~/.zshrc"
 
+export TERM=screen-256color
+
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
   [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
 fi
@@ -121,8 +123,6 @@ source /usr/share/nvm/init-nvm.sh
 
 export EDITOR=nvim
 export QT_STYLE_OVERRIDE=adwaita
-export TERM=screen-256color
-# if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 source "$HOME/.cargo/env"
 setxkbmap -option caps:swapescape
