@@ -14,8 +14,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'cespare/vim-toml'
 Plug 'kien/ctrlp.vim'
 Plug 'ron-rs/ron.vim'
-" Plug 'edkolev/tmuxline.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'lambdalisue/suda.vim'
+" Plug 'edkolev/tmuxline.vim'
 
 if (!is_pi)
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
@@ -66,6 +67,8 @@ set mouse=a
 set ttimeoutlen=10
 set pumblend=25
 set guifont=CozetteVector:h15
+set encoding=UTF-8
+" set fillchars=stl:\ ,stlnc:\ ,fold:\
 " set fillchars+=vert:\|
 
 " highlight clear CursorLineNr
@@ -79,7 +82,7 @@ hi ColorColumn guibg=#202020
 hi VertSplit guibg=#202020 guifg=#202020
 hi StatusLineNR guibg=#202020 guifg=#202020
 hi StatusLine guibg=#202020 guifg=#202020
-hi StatusLineNC guibg=#202020 guifg=#202020
+" hi StatusLineNC guibg=#202020 guifg=#202020
 
 " remaps
 
@@ -87,6 +90,7 @@ nnoremap <C-j> :bprevious<CR>
 nnoremap <C-m> :bnext<CR>
 nnoremap K J
 nnoremap <leader>r :source $MYVIMRC<CR>
+nnoremap <leader>q <C-w><C-q>
 noremap m l
 noremap l k
 noremap k j
@@ -95,6 +99,7 @@ noremap <leader>m <C-w>l
 noremap <leader>l <C-w>k
 noremap <leader>k <C-w>j
 noremap <leader>j <C-w>h
+noremap <leader>x :bp<cr>:bd #<cr>
 
 function! Set2SpacesTab()
     set tabstop=2
@@ -102,6 +107,8 @@ function! Set2SpacesTab()
 endfunction
 
 nnoremap <leader>é :call Set2SpacesTab()<CR>
+
+let g:suda_smart_edit=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline config
@@ -160,10 +167,14 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if (!is_pi)
-    let g:NERDTreeMinimalUI = 1
+    autocmd VimEnter * NERDTree | wincmd p
+    " let g:NERDTreeMinimalUI = 1
     " Automaticaly close nvim if NERDTree is only thing left open
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    nnoremap <leader>o :NERDTreeToggle<CR>
+    autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+        \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+    nnoremap <leader>t :NERDTreeToggle<CR>
+    nnoremap <leader>n :NERDTreeFocus<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,13 +188,13 @@ if (!is_pi)
     " if hidden is not set, TextEdit might fail.
     set hidden
     " Better display for messages
-    set cmdheight=2
+    " set cmdheight=2
     " Smaller updatetime for CursorHold & CursorHoldI
     set updatetime=300
     " don't give |ins-completion-menu| messages.
     set shortmess+=c
     " always show signcolumns
-    set signcolumn=yes
+    " set signcolumn=yes
 
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not
@@ -212,5 +223,3 @@ if (!is_pi)
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
 endif
-
-set cmdheight=1
