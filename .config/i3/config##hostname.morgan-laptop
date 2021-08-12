@@ -292,7 +292,7 @@ exec --no-startup-id redshift
 exec --no-startup-id clipit
 
 # Desktop Wallpaper
-exec_always feh --bg-fill /home/morgan/Pictures/wallpapers/mitsuki4.png
+exec_always feh --bg-fill /home/morgan/Pictures/wallpapers/minimalist1.jpg
 
 # Mouse sensitivty
 # exec xinput set-prop 13 302 -0.8

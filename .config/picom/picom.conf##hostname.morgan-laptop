@@ -35,8 +35,8 @@ rounded-corners-exclude = [
 
 # Background-Blurring
 blur-method = "dual_kawase";
-blur-strength = 4;
-blur-size = 2
+blur-strength = 2;
+blur-size = 2;
 # blur-deviation = 0.2
 blur-deviation = false
 blur-background = false
