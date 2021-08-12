@@ -68,7 +68,7 @@ set ttimeoutlen=10
 set pumblend=25
 set guifont=CozetteVector:h15
 set encoding=UTF-8
-set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 " set fillchars+=vert:\|
 " set fillchars=stl:\ ,stlnc:\ ,fold:\
 
@@ -82,8 +82,8 @@ hi CursorLineNr guibg=#202020
 hi ColorColumn guibg=#202020
 hi VertSplit guibg=#202020 guifg=#202020
 hi StatusLineNR guibg=#202020 guifg=#202020
-hi StatusLine guibg=#202020 guifg=#202020
-" hi StatusLineNC guibg=#202020 guifg=#202020
+hi StatusLine guibg=#202020 guifg=#202020 cterm=italic
+hi StatusLineNC guibg=#202020 guifg=#202020
 
 " remaps
 

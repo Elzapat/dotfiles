@@ -17,7 +17,7 @@ ZSH_THEME="elzapat"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -74,11 +74,6 @@ plugins=(git rust)
 
 source $ZSH/oh-my-zsh.sh
 
-_fix_cursor() {
-   echo -ne '\e[6 q'
-}
-precmd_functions+=(_fix_cursor)
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -104,6 +99,12 @@ precmd_functions+=(_fix_cursor)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+ 
+_fix_cursor() {
+   echo -ne '\e[6 q'
+}
+precmd_functions+=(_fix_cursor)
+
 alias zshconf="nvim /home/morgan/.zshrc"
 alias nvimconf="nvim /home/morgan/.config/nvim/init.vim"
 alias i3conf="nvim /home/morgan/.config/i3/config"
@@ -126,7 +127,5 @@ export QT_STYLE_OVERRIDE=adwaita
 
 source "$HOME/.cargo/env"
 setxkbmap -option caps:swapescape
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 neofetch
-
