@@ -44,7 +44,7 @@ colors:
       magenta: '#6c71c4' # violet
       cyan:    '#93a1a1' # base1
       white:   '#fdf6e3' # base3
-background_opacity: 0.7 
+background_opacity: 0.6
 
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }

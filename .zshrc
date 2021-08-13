@@ -117,7 +117,7 @@ alias re-source="source ~/.zshrc"
 export TERM=screen-256color
 
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
-  [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
+  [ -z "${TMUX}" ] && { tmux attach || tmux new -s "tmux"; } >/dev/null 2>&1
 fi
 
 source /usr/share/nvm/init-nvm.sh
