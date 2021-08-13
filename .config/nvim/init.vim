@@ -68,7 +68,8 @@ set ttimeoutlen=10
 set pumblend=25
 set guifont=CozetteVector:h15
 set encoding=UTF-8
-set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+set signcolumn=no
+" set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 " set fillchars+=vert:\|
 " set fillchars=stl:\ ,stlnc:\ ,fold:\
 
@@ -82,7 +83,7 @@ hi CursorLineNr guibg=#202020
 hi ColorColumn guibg=#202020
 hi VertSplit guibg=#202020 guifg=#202020
 hi StatusLineNR guibg=#202020 guifg=#202020
-hi StatusLine guibg=#202020 guifg=#202020 cterm=italic
+hi StatusLine guibg=#20202000 guifg=#202020 cterm=italic
 hi StatusLineNC guibg=#202020 guifg=#202020
 
 " remaps
@@ -101,6 +102,7 @@ noremap <leader>l <C-w>k
 noremap <leader>k <C-w>j
 noremap <leader>j <C-w>h
 noremap <leader>x :bp<cr>:bd #<cr>
+nnoremap <leader>b :ls<cr>:b<space>
 
 function! Set2SpacesTab()
     set tabstop=2
@@ -123,60 +125,63 @@ let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " cxx highlight config
 """"""""""""""""""""""""""""""""""""""""
-if (!is_pi)
-    let g:lsp_cxx_hl_use_nvim_text_props = 1
-    highlight LspCxxHlSymVariable ctermfg=Gray guifg=Gray
-    highlight LspCxxHlGroupMemberVariable ctermfg=Gray guifg=Gray
-    highlight LspCxxHlGroupNamespace ctermfg=130 guifg=#E62F22
-    highlight LspCxxHlSymClass ctermfg=28 guifg=Green
-    highlight Type ctermfg=28 guifg=Green
-    highlight LspCxxHlGroupEnumConstant ctermfg=26 guifg=Blue
-endif
+let g:lsp_cxx_hl_use_nvim_text_props = 1
+highlight LspCxxHlSymVariable ctermfg=Gray guifg=Gray
+highlight LspCxxHlGroupMemberVariable ctermfg=Gray guifg=Gray
+highlight LspCxxHlGroupNamespace ctermfg=130 guifg=#E62F22
+highlight LspCxxHlSymClass ctermfg=28 guifg=Green
+highlight Type ctermfg=28 guifg=Green
+highlight LspCxxHlGroupEnumConstant ctermfg=26 guifg=Blue
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrl-p config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if (!is_pi)
-    " let g:ctrlp_cmd = 'CtrlP'
-    " let g:ctrlp_map = '<c-p>'
-    " let g:ctrlp_user_command = ['.git/',
-    "   \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-    " Setup some default ignores
-    let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-      \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-    \}
+" let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_user_command = ['.git/',
+"   \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
 
-    " Use the nearest .git directory as the cwd
-    " This makes a lot of sense if you are working on a project that is in version
-    " control. It also supports works with .svn, .hg, .bzr.
-    let g:ctrlp_working_path_mode = 'r'
+" Use the nearest .git directory as the cwd
+" This makes a lot of sense if you are working on a project that is in version
+" control. It also supports works with .svn, .hg, .bzr.
+let g:ctrlp_working_path_mode = 'r'
 
-    " Use a leader instead of the actual named binding
-    nmap <leader>p :CtrlP<cr>
+" Use a leader instead of the actual named binding
+nmap <leader>p :CtrlP<cr>
 
-    " Easy bindings for its various modes
-    nmap <leader>bb :CtrlPBuffer<cr>
-    nmap <leader>bm :CtrlPMixed<cr>
-    nmap <leader>bs :CtrlPMRU<cr>
-endif
+" Easy bindings for its various modes
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+nmap <leader>bs :CtrlPMRU<cr>
 
+let g:ctrlp_prompt_mappings = {
+            \ 'PrtSelectMove("j")':   ['<c-k>'],
+            \ 'PrtSelectMove("k")':   ['<c-l>'],
+            \ 'PrtCurLeft()':         ['<c-j>'],
+            \ 'PrtCurRight()':        [],
+            \ 'AcceptSelection("h")': ['<c-h>'],
+            \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+            \ 'AcceptSelection("e")': ['<cr>', '<c-m>'],
+            \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if (!is_pi)
-    autocmd VimEnter * NERDTree | wincmd p
-    " let g:NERDTreeMinimalUI = 1
-    " Automaticaly close nvim if NERDTree is only thing left open
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-        \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-    nnoremap <leader>t :NERDTreeToggle<CR>
-    nnoremap <leader>n :NERDTreeFocus<CR>
-endif
+" autocmd VimEnter * NERDTree | wincmd p
+" let g:NERDTreeMinimalUI = 1
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CoC config
