@@ -260,7 +260,6 @@ assign [class="^.*Minecraft.*$"] $game_workspace
 assign [class="^signal$"] $chat_workspace
 assign [class="^dolphin$"] $file_workspace
 assign [class="^Pinentry-gtk-2"] $terminal_workspace
-assign [class=".*"] $unknown_workspace
 
 for_window [class="^Spotify$"] move to workspace $media_workspace
 # for_window [class="^(Navigator|firefox)$"] move to workspace $browser_workspace
@@ -285,7 +284,7 @@ exec --no-startup-id dunst
 exec --no-startup-id clipit
 
 # Desktop Wallpaper
-exec_always feh --converstion-timeout 1 --bg-fill /home/morgan/Pictures/wallpapers/mitsuki5.png
+exec_always feh --converstion-timeout 1 --bg-fill /home/morgan/Pictures/wallpapers/minimalist1.jpg
 
 # Mouse sensitivty
 exec_always xinput set-prop 8 302 -0.8
