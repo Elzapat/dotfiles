@@ -116,15 +116,14 @@ alias re-source="source ~/.zshrc"
 
 export TERM=screen-256color
 
+export EDITOR=nvim
+export QT_STYLE_OVERRIDE=adwaita
+
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
   [ -z "${TMUX}" ] && { tmux attach || tmux new -s "tmux"; } >/dev/null 2>&1
 fi
 
 source /usr/share/nvm/init-nvm.sh
-
-export EDITOR=nvim
-export QT_STYLE_OVERRIDE=adwaita
-
 source "$HOME/.cargo/env"
 setxkbmap -option caps:swapescape
 

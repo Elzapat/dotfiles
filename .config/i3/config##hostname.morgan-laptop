@@ -264,7 +264,6 @@ assign [class="^Keybase$"] $work_workspace
 assign [class="^Pidgin$"] $work_workspace
 assign [class="^Slack$"] $work_workspace
 assign [class="^TeamSpeak 3$"] $chat_workspace
-assign [class=".*"] $unknown_workspace
 
 exec --no-startup-id i3-msg 'workspace "3"; append_layout /home/morgan/.config/i3/satelliz_layoutjson'
 
