@@ -16,5 +16,7 @@
                 }
             }
         }
-    }
+    },
+    "rust.build_on_save": true,
+    "rust-client.updateOnStartup": true
 }

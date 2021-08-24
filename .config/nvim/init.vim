@@ -10,12 +10,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
 Plug 'cespare/vim-toml'
 Plug 'kien/ctrlp.vim'
 Plug 'ron-rs/ron.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'lambdalisue/suda.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'edkolev/tmuxline.vim'
 
 if (!is_pi)
@@ -66,9 +67,11 @@ set noshowmode
 set mouse=a
 set ttimeoutlen=10
 set pumblend=25
-set guifont=CozetteVector:h15
+" set guifont=CozetteVector:h15
+set guifont=JetBrainsMono\ Nerd\ Font:h15
 set encoding=UTF-8
 set signcolumn=no
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,target,node_modules
 " set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 " set fillchars+=vert:\|
 " set fillchars=stl:\ ,stlnc:\ ,fold:\
@@ -122,6 +125,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 
+" add devicons to buffers
+let g:webdevicons_enable_airline_tabline = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " cxx highlight config
 """"""""""""""""""""""""""""""""""""""""
@@ -137,13 +143,16 @@ highlight LspCxxHlGroupEnumConstant ctermfg=26 guifg=Blue
 " ctrl-p config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" devicons
+let g:webdevicons_enable_ctrlp = 1
+
 " let g:ctrlp_cmd = 'CtrlP'
 " let g:ctrlp_map = '<c-p>'
 " let g:ctrlp_user_command = ['.git/',
 "   \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 " Setup some default ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn|target)|\_site)$',
   \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
 \}
 

@@ -8,7 +8,7 @@ info_fg = "#202020" # base03
 good_fg = "#202020" # base03 # before -----> #002b36
 # warning_bg = "#DFFFOO" # yellow
 warning_fg = "#202020" # base03
-separator = "<span font='16'>\ue0b2</span>"
+separator = "<span font='13'>\ue0b2</span>"
 
 [[block]]
 block = "focused_window"
@@ -21,7 +21,7 @@ max_width = 55
 smart_trim = true
 hide_when_empty = true
 dynamic_width = true
-format = "{artist} - {title} "
+format = " {artist} - {title} "
 [block.theme_overrides]
 idle_bg = "#303030"
 
@@ -33,6 +33,7 @@ block = "sound"
 
 [[block]]
 block = "battery"
+format = " {percentage}"
 
 [[block]]
 block = "disk_space"
@@ -57,11 +58,11 @@ interval = 1
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
+format = " {1m}"
 
 [[block]]
 block = "weather"
-format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
+format = " {weather} ({location}) {temp}, {wind} m/s {direction}"
 service = { name = "openweathermap", api_key = "75d2078ab5c8b6e4a04478153fe3d441", city_id = "3030300", units = "metric" }
 [block.theme_overrides]
 idle_fg = "#202020"
