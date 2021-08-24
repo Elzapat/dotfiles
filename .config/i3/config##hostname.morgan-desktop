@@ -139,9 +139,10 @@ mode "resize" {
 }
 
 bar {
-    font pango: CozetteVector 12
+    # font pango: CozetteVector 12
+    font pango: JetBrainsMono Nerd font 11.4
     # font pango:DejaVu Sans Mono, FontAwesome 12
-    i3bar_command i3bar
+    # i3bar_command i3bar
     # output primary
     position top
     # status_command i3blocks -c $HOME/.config/i3blocks/i3blocks.conf
@@ -228,9 +229,9 @@ set $monitor_middle "DP-0"
 set $monitor_left "HDMI-0"
 set $monitor_right "DVI-D-0"
 workspace $terminal_workspace output $monitor_middle
-workspace $browser_workspace output $monitor_left
+workspace $browser_workspace output $monitor_right
 workspace $game_workspace output $monitor_middle
-workspace $chat_workspace output $monitor_right
+workspace $chat_workspace output $monitor_left
 workspace $file_workspace output $monitor_middle
 workspace $media_workspace output $monitor_middle
 
