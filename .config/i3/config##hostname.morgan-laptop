@@ -153,7 +153,8 @@ bar {
     # output primary
     position top
     # status_command i3blocks -c $HOME/.config/i3blocks/i3blocks.conf
-    status_command i3status-rs
+    # status_command $HOME/.cargo/bin/i3status-rs $HOME/.config/i3status-rust/config.toml
+    status_command i3status-rs $HOME/.config/i3status-rust/config.toml
     # strip_workspace_numbers yes
     # tray_output primary
     colors {
