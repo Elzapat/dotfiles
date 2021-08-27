@@ -1,0 +1,9 @@
+configuration {
+    show-icons: true;
+    icon-theme: "Qogir-dark";
+    theme: "slate";
+}
+
+element-icon {
+    size: 1.8ch;
+}
