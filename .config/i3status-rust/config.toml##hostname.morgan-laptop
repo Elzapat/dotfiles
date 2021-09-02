@@ -86,7 +86,7 @@ idle_fg = "#202020"
 
 [[block]]
 block = "custom"
-command = "echo ' \ue7a8 '"
+command = "echo ''"
 interval = "once"
 [block.theme_overrides]
 idle_bg = "#B24C00"
