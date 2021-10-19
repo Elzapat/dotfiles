@@ -14,11 +14,15 @@ packer.startup(function()
 	use "kyazdani42/nvim-web-devicons"
 
 	use "akinsho/bufferline.nvim"
+
+	use "windwp/nvim-autopairs"
 end)
 
-require("bufferline").setup{}
+require("bufferline").setup()
+require("nvim-autopairs").setup()
 
 vim.cmd("colorscheme solarized")
-vim.cmd("highlight Normal guibg=none")
 vim.api.nvim_set_keymap("n", "<C-h>", ":bprevious<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-l>", ":bnext<CR>", { noremap = true })
+
+vim.cmd("highlight Normal guibg=none")
