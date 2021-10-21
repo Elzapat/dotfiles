@@ -18,7 +18,10 @@ local packer = require("packer").startup(function(use)
 
 	use "lukas-reineke/indent-blankline.nvim"
 
-	use { "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } }
+	use {
+		"ellisonleao/gruvbox.nvim",
+		requires = { "rktjmp/lush.nvim" }
+	}
 
 	use {
 		"OmniSharp/omnisharp-vim",
@@ -30,11 +33,19 @@ local packer = require("packer").startup(function(use)
 	use "andweeb/presence.nvim"
 
 	use "wakatime/vim-wakatime"
+
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = { { 'nvim-lua/plenary.nvim' } }
+	}
+
+	use "ron-rs/ron.vim"
 end)
 
 require("plugins.airline")
 require("plugins.indent_blankline")
 require("plugins.presence")
+require("plugins.telescope")
 
 require("bufferline").setup()
 require("nvim-autopairs").setup()
