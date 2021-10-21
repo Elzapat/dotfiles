@@ -1,4 +1,4 @@
-return require("packer").startup(function(use)
+local packer = require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 
 	use "ishan9299/nvim-solarized-lua"
@@ -24,4 +24,20 @@ return require("packer").startup(function(use)
 		"OmniSharp/omnisharp-vim",
 		ft = { "cs" }
 	}
+
+	use "terrortylor/nvim-comment"
+
+	use "andweeb/presence.nvim"
+
+	use "wakatime/vim-wakatime"
 end)
+
+require("plugins.airline")
+require("plugins.indent_blankline")
+require("plugins.presence")
+
+require("bufferline").setup()
+require("nvim-autopairs").setup()
+require("nvim_comment").setup()
+
+return packer
