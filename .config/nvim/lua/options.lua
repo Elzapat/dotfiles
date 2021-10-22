@@ -7,7 +7,7 @@ vim.opt.number = true
 vim.opt.mouse = "a"
 
 vim.opt.incsearch = true
-vim.opt.nohlsearch = true
+-- vim.opt.nohlsearch = true
 
 vim.opt.smartcase = true
 
