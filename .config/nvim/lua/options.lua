@@ -17,7 +17,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 
-vim.opt.ttimeoutlet = true
-vim.opt.pumblend = true
+vim.opt.pumblend = 25
 
 vim.opt.encoding = "UTF-8"
