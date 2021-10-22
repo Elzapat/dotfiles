@@ -252,6 +252,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 # Assign windows to the right workspaces
 # assign [class="spotify"] $media_workspace
 assign [class="^firefox$"] $browser_workspace
+assign [class="^vivaldi-sable$"] $browser_workspace
 assign [class="^discord$"] $chat_workspace
 assign [class="^Signal$"] $chat_workspace
 assign [class="^.*Steam.*$"] $game_workspace
@@ -264,17 +265,18 @@ assign [class="^Pinentry-gtk-2"] $terminal_workspace
 
 for_window [class="^Spotify$"] move to workspace $media_workspace
 # for_window [class="^(Navigator|firefox)$"] move to workspace $browser_workspace
+for_window [class="^vivaldi-stable$"] move to workspace $browser_workspace
 
 # Open windows on startup
 exec --no-startup-id spotify
-exec --no-startup-id firefox
+# exec --no-startup-id firefox
+exec --no-startup-id vivaldi-stable
 exec --no-startup-id discord
 exec --no-startup-id steam
 exec --no-startup-id signal-desktop
 exec --no-startup-id alacritty
 
-# Move workspaces to another monitor
-bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
+# Move workspaces to another monitor bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
 bindsym $mod+Ctrl+eacute move workspace to output $monitor_middle
 bindsym $mod+Ctrl+quotedbl move workspace to output $monitor_right
 
@@ -288,8 +290,8 @@ exec --no-startup-id clipit
 exec_always feh --converstion-timeout 1 --bg-fill /home/morgan/Pictures/wallpapers/minimalist1.jpg
 
 # Mouse sensitivty
-exec_always xinput set-prop 8 302 -0.8
-exec_always xinput --set-prop 8 'libinput Accel Speed' <acceleration factor>
+exec_always $HOME/.scripts/mouse_accel.sh -0.85
+# exec_always xinput --set-prop 18 'libinput Accel Speed' <acceleration factor>
 # Screenshots shortcuts
 # Full desktop screenshot
 bindsym $mod+Shift+Print exec spectacle -b -c -f

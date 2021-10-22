@@ -35,20 +35,32 @@ local packer = require("packer").startup(function(use)
 	use "wakatime/vim-wakatime"
 
 	use {
-		'nvim-telescope/telescope.nvim',
+		"nvim-telescope/telescope.nvim",
 		requires = { { 'nvim-lua/plenary.nvim' } }
+	}
+
+	use {
+		"simrat39/rust-tools.nvim",
+		requires = {
+			"neovim/nvim-lspconfig",
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"mfussenegger/nvim-dap",
+		}
 	}
 
 	use "ron-rs/ron.vim"
 end)
 
 require("plugins.airline")
-require("plugins.indent_blankline")
+require("plugins.indent-blankline")
 require("plugins.presence")
 require("plugins.telescope")
+require("plugins.nvim-autopairs")
 
 require("bufferline").setup()
-require("nvim-autopairs").setup()
 require("nvim_comment").setup()
+require('rust-tools').setup()
 
 return packer

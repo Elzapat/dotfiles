@@ -8,7 +8,7 @@ info_fg = "#202020" # base03
 good_fg = "#202020" # base03 # before -----> #002b36
 # warning_bg = "#DFFFOO" # yellow
 warning_fg = "#202020" # base03
-separator = "<span font='15'>\ue0b2</span>"
+separator = "<span font='14.5'>\ue0b2</span>"
 alternating_tint_bg = "#101010"
 
 [[block]]
