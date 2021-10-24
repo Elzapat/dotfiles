@@ -99,9 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
- 
+
 _fix_cursor() {
-   echo -ne '\e[6 q'
+ echo -ne '\e[6 q'
 }
 precmd_functions+=(_fix_cursor)
 
@@ -119,12 +119,32 @@ export TERM=screen-256color
 export EDITOR=nvim
 export QT_STYLE_OVERRIDE=adwaita
 
+export MANPAGER="less -s -M +Gg"
+export LESS="--RAW-CONTROL-CHARS"
+less_colors=$HOME/.scripts/.LESS_TERMCAP
+[[ -f $lesscolors ]] && . $lesscolors
+
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
   [ -z "${TMUX}" ] && { tmux attach || tmux new -s "tmux"; } >/dev/null 2>&1
 fi
 
-source /usr/share/nvm/init-nvm.sh
+if [ "$(command -v exa)" ]; then
+  unalias -m 'll'
+  unalias -m 'l'
+  unalias -m 'la'
+  unalias -m 'ls'
+  alias ls='exa -G  --color auto --icons -a -s type'
+  alias ll='exa -l --color always --icons -a -s type'
+fi
+
+if [ "$(command -v bat)" ]; then
+  unalias -m 'cat'
+  alias cat='bat -pp --theme="gruvbox-dark"'
+fi
+
 source "$HOME/.cargo/env"
 setxkbmap -option caps:swapescape
 
 neofetch
+
+# eval "$(starship init zsh)"
