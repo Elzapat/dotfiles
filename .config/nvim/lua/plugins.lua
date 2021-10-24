@@ -7,11 +7,15 @@ local packer = require("packer").startup(function(use)
 
 	use "neovim/nvim-lspconfig"
 
+	use "nvim-treesitter/nvim-treesitter"
+
 	use "kyazdani42/nvim-web-devicons"
 
 	use "akinsho/bufferline.nvim"
 
 	use "windwp/nvim-autopairs"
+
+	use "windwp/nvim-ts-autotag"
 
 	use "vim-airline/vim-airline"
 	use "vim-airline/vim-airline-themes"
@@ -58,9 +62,12 @@ require("plugins.indent-blankline")
 require("plugins.presence")
 require("plugins.telescope")
 require("plugins.nvim-autopairs")
+require("plugins.nvim-treesitter")
 
 require("bufferline").setup()
 require("nvim_comment").setup()
-require('rust-tools').setup()
+require("rust-tools").setup()
+require("nvim-ts-autotag").setup()
+-- require("nvim-treesitter.configs").setup {}
 
 return packer

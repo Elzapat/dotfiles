@@ -1,7 +1,9 @@
 vim.opt.termguicolors = true
-
+<<<<<<< Updated upstream
+=======
 vim.opt.relativenumber = true
 vim.opt.number = true
+>>>>>>> Stashed changes
 vim.opt.background = "dark"
 
 vim.opt.relativenumber = true
@@ -10,6 +12,7 @@ vim.opt.number = true
 vim.opt.mouse = "a"
 
 vim.opt.incsearch = true
+-- vim.opt.nohlsearch = true
 
 vim.opt.smartcase = true
 
@@ -17,14 +20,8 @@ vim.opt.lazyredraw = true
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.clipboard:append("unnamedplus")
+vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 
 vim.opt.pumblend = 25
 
 vim.opt.encoding = "UTF-8"
-
-vim.cmd "autocmd CmdlineEnter /,? :set hlsearch"
-vim.cmd "autocmd CmdlineLeave /,? :set nohlsearch"
-
-vim.cmd "filetype indent on"
-vim.cmd "autocmd filetype * set indentexpr=off"
