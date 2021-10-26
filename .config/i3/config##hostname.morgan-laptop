@@ -257,6 +257,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 # Assign windows to the right workspaces
 # assign [class="spotify"] $media_workspace
 assign [class="^firefox$"] $browser_workspace
+assign [class="^vivaldi-stable$"] $browser_workspace
 assign [class="^discord$"] $chat_workspace
 assign [class="^.*Steam.*$"] $game_workspace
 assign [class="^konsole$"] $terminal_workspace
@@ -272,12 +273,15 @@ assign [class="^TeamSpeak 3$"] $chat_workspace
 exec --no-startup-id i3-msg 'workspace "3"; append_layout /home/morgan/.config/i3/satelliz_layoutjson'
 
 for_window [class="^Spotify$"] move to workspace $media_workspace
+for_window [class="^vivaldi-stable$"] move to workspace $browser_workspace
+for_window [class="^signal$"] move to workspace $chat_workspace
 # for_window [class="^(Navigator|firefox)$"] move to workspace $browser_workspace
 
 # Open windows on startup
 exec --no-startup-id spotify
-exec --no-startup-id firefox
+exec --no-startup-id vivaldi-stable
 exec --no-startup-id discord
+exec --no-startup-id signal-desktop
 exec --no-startup-id alacritty
 
 # Move workspaces to another monitor

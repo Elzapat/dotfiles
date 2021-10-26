@@ -2,19 +2,19 @@ env:
   TERM: screen-256color
 
 font:
-  # normal:
-  #   family: SauceCodePro Nerd Font
-  #   style: Regular
-  #
-  # bold:
-  #   family: SauceCodePro Nerd Font
-  #   style: Bold
+#   normal:
+#       family: JetBrainsMono Nerd Font
+#       stlye: Regular
+# 
+#   bold:
+#       family: JetBrainsMono Nerd Font
+#       stlye: Regular
   normal:
-    family: JetBrainsMono Nerd Font
-    style: Regular
+    family: SauceCodePro Nerd Font
+    style: Medium
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: SauceCodePro Nerd Font
     style: Bold
 
   size: 8.5
@@ -27,40 +27,130 @@ font:
   #   family: CozetteVector
   #   style: Bold
 
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x121212'
+#     foreground: '0xdedede'
+# 
+#   # Cursor colors
+#   cursor:
+#     text:   '0xffffff'
+#     cursor: '0xffa460'
+# 
+#   # Normal colors
+#   normal:
+#     black:   '0x929292'
+#     red:     '0xe27373'
+#     green:   '0x94b979'
+#     yellow:  '0xffba7b'
+#     blue:    '0x97bedc'
+#     magenta: '0xe1c0fa'
+#     cyan:    '0x00988e'
+#     white:   '0xdedede'
+# 
+#   # Bright colors
+#   bright:
+#     black:   '0xbdbdbd'
+#     red:     '0xffa1a1'
+#     green:   '0xbddeab'
+#     yellow:  '0xffdca0'
+#     blue:    '0xb1d8f6'
+#     magenta: '0xfbdaff'
+#     cyan:    '0x1ab2a8'
+#     white:   '0xffffff'
+colors:
+  primary:
+    background: '0x282828'
+    foreground: '0xdfbf8e'
+
+  normal:
+    black:   '0x665c54'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xe78a4e'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xdfbf8e'
+
+  bright:
+    black:   '0x928374'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xe3a84e'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xdfbf8e'
+
+    # Custom Solarized
+colors:
+   # Default colors
+   primary:
+       background: '#000000' # base03
+       foreground: '#839496' # base0
+ 
+   # Cursor colors
+   cursor:
+       text:   '#002b36' # base03
+       cursor: '#839496' # base0
+ 
+   # Normal colors
+   normal:
+       black:   '#073642' # base02
+       red:     '#dc322f' # red
+       green:   '#55a649' # green
+       yellow:  '#dfff00' # yellow
+       blue:    '#268bd2' # blue
+       magenta: '#d33682' # magenta
+       cyan:    '#2aa198' # cyan
+       white:   '#eee8d5' # base2
+ 
+   # Bright colors
+   bright:
+       black:   '#002b36' # base03
+       red:     '#cb4b16' # orange
+       green:   '#586e75' # base01
+       yellow:  '#657b83' # base00
+       blue:    '#839496' # base0
+       magenta: '#6c71c4' # violet
+       cyan:    '#93a1a1' # base1
+       white:   '#fdf6e3' # base3
+
+# Colors (Gruvbox dark)
 colors:
   # Default colors
   primary:
-      background: '#000000' # base03
-      foreground: '#839496' # base0
-
-  # Cursor colors
-  cursor:
-      text:   '#002b36' # base03
-      cursor: '#839496' # base0
+    # hard contrast: background = '0x1d2021'
+    background: '0x282828'
+    # soft contrast: background = '0x32302f'
+    foreground: '0xebdbb2'
 
   # Normal colors
   normal:
-      black:   '#073642' # base02
-      red:     '#dc322f' # red
-      green:   '#55a649' # green
-      yellow:  '#dfff00' # yellow
-      blue:    '#268bd2' # blue
-      magenta: '#d33682' # magenta
-      cyan:    '#2aa198' # cyan
-      white:   '#eee8d5' # base2
+    black:   '0x282828'
+    red:     '0xcc241d'
+    green:   '0x98971a'
+    yellow:  '0xd79921'
+    blue:    '0x458588'
+    magenta: '0xb16286'
+    cyan:    '0x689d6a'
+    white:   '0xa89984'
 
   # Bright colors
   bright:
-      black:   '#002b36' # base03
-      red:     '#cb4b16' # orange
-      green:   '#586e75' # base01
-      yellow:  '#657b83' # base00
-      blue:    '#839496' # base0
-      magenta: '#6c71c4' # violet
-      cyan:    '#93a1a1' # base1
-      white:   '#fdf6e3' # base3
-background_opacity: 0.6
+    black:   '0x928374'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xebdbb2'
 
+background_opacity: 1.0
+# 
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
   - { key: L,                           mode: Vi|~Search, action: Up                      }

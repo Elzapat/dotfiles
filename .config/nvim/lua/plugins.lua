@@ -55,6 +55,8 @@ local packer = require("packer").startup(function(use)
 	}
 
 	use "ron-rs/ron.vim"
+
+	use "sbdchd/neoformat"
 end)
 
 require("plugins.airline")
@@ -63,11 +65,12 @@ require("plugins.presence")
 require("plugins.telescope")
 require("plugins.nvim-autopairs")
 require("plugins.nvim-treesitter")
+require("plugins.lspconfig")
 
 require("bufferline").setup()
+require("nvim-autopairs").setup({ map_cr = true })
 require("nvim_comment").setup()
 require("rust-tools").setup()
 require("nvim-ts-autotag").setup()
--- require("nvim-treesitter.configs").setup {}
 
 return packer
