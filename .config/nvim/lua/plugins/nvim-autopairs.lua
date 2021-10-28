@@ -22,3 +22,5 @@ npairs.add_rule(
 )
 
 npairs.add_rule(Rule("$$", "$$", { "tex", "latex" }))
+
+npairs.get_rule("("):replace_map_cr(function() return "<cr><cr><bs><Up><C-f>" end)

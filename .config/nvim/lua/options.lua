@@ -27,4 +27,4 @@ vim.cmd "autocmd CmdlineEnter /,? :set hlsearch"
 vim.cmd "autocmd CmdlineLeave /,? :set nohlsearch"
 
 vim.cmd "filetype indent on"
-vim.cmd "autocmd filetype * set indentexpr=off"
+-- vim.cmd "autocmd filetype * set indentexpr=off"

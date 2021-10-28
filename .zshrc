@@ -140,7 +140,7 @@ fi
 
 if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
-  alias cat='bat -pp --theme="gruvbox-dark"'
+  alias cat='bat -pp --theme="gruvbox-dark" --style=numbers'
 fi
 
 source "$HOME/.cargo/env"
@@ -148,9 +148,7 @@ setxkbmap -option caps:swapescape
 
 neofetch
 
-<<<<<<< Updated upstream
 # eval "$(starship init zsh)"
-=======
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C "/usr/bin/symfony self:autocomplete --zsh" symfony
 
@@ -168,5 +166,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
->>>>>>> Stashed changes

@@ -43,17 +43,6 @@ local packer = require("packer").startup(function(use)
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 
-	use {
-		"simrat39/rust-tools.nvim",
-		requires = {
-			"neovim/nvim-lspconfig",
-			"nvim-lua/popup.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"mfussenegger/nvim-dap",
-		}
-	}
-
 	use "ron-rs/ron.vim"
 
 	use "sbdchd/neoformat"
@@ -68,7 +57,6 @@ require("plugins.nvim-treesitter")
 require("plugins.lspconfig")
 
 require("bufferline").setup()
-require("nvim-autopairs").setup({ map_cr = true })
 require("nvim_comment").setup()
 require("rust-tools").setup()
 require("nvim-ts-autotag").setup()
