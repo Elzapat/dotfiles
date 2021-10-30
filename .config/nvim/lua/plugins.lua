@@ -5,22 +5,32 @@ local packer = require("packer").startup(function(use)
 
 	use "sheerun/vim-polyglot"
 
-	use "neovim/nvim-lspconfig"
+	use {
+		"neovim/nvim-lspconfig",
+	}
 
-	use "nvim-treesitter/nvim-treesitter"
+	use {
+		"nvim-treesitter/nvim-treesitter",
+	}
 
 	use "kyazdani42/nvim-web-devicons"
 
-	use "akinsho/bufferline.nvim"
+	use {
+		"akinsho/bufferline.nvim",
+	}
 
-	use "windwp/nvim-autopairs"
+	use {
+		"windwp/nvim-autopairs",
+	}
 
-	use "windwp/nvim-ts-autotag"
-
-	use "vim-airline/vim-airline"
+	use {
+		"vim-airline/vim-airline",
+	}
 	use "vim-airline/vim-airline-themes"
 
-	use "lukas-reineke/indent-blankline.nvim"
+	use {
+		"lukas-reineke/indent-blankline.nvim",
+	}
 
 	use {
 		"ellisonleao/gruvbox.nvim",
@@ -32,33 +42,47 @@ local packer = require("packer").startup(function(use)
 		ft = { "cs" }
 	}
 
-	use "terrortylor/nvim-comment"
+	use {
+		"terrortylor/nvim-comment",
+		config = function()
+		end,
+	}
 
-	use "andweeb/presence.nvim"
+	use {
+		"andweeb/presence.nvim",
+	}
 
 	use "wakatime/vim-wakatime"
 
 	use {
 		"nvim-telescope/telescope.nvim",
-		requires = { { 'nvim-lua/plenary.nvim' } }
+		requires = { { 'nvim-lua/plenary.nvim' } },
+		config = function()
+		end,
 	}
 
 	use "ron-rs/ron.vim"
 
 	use "sbdchd/neoformat"
+
+	-- use "windwp/nvim-ts-autotag"
+
+	use {
+		"alvan/vim-closetag",
+		ft = { "html", "xhtml", "tsx", "jsx", "php" },
+	}
 end)
 
+require("plugins.lspconfig")
+require("plugins.nvim-treesitter")
+require("plugins.nvim-autopairs")
 require("plugins.airline")
 require("plugins.indent-blankline")
 require("plugins.presence")
 require("plugins.telescope")
-require("plugins.nvim-autopairs")
-require("plugins.nvim-treesitter")
-require("plugins.lspconfig")
+require("plugins.vim-closetag")
 
-require("bufferline").setup()
 require("nvim_comment").setup()
-require("rust-tools").setup()
-require("nvim-ts-autotag").setup()
+require("bufferline").setup()
 
 return packer
