@@ -1,3 +1,7 @@
+local not_on_pi = function()
+	return vim.api.nvim_eval("hostname()") ~= "morgan-pi"
+end
+
 local packer = require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 
@@ -11,6 +15,9 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("plugins.nvim-treesitter")
+		end,
 	}
 
 	use "kyazdani42/nvim-web-devicons"
@@ -44,12 +51,14 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"terrortylor/nvim-comment",
-		config = function()
-		end,
 	}
 
 	use {
 		"andweeb/presence.nvim",
+		cond = { not_on_pi },
+		config = function()
+			require("plugins.presence")
+		end,
 	}
 
 	use "wakatime/vim-wakatime"
@@ -57,15 +66,18 @@ local packer = require("packer").startup(function(use)
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = { { 'nvim-lua/plenary.nvim' } },
+		cond = { not_on_pi },
 		config = function()
+			require("plugins.telescope")
 		end,
 	}
 
 	use "ron-rs/ron.vim"
 
-	use "sbdchd/neoformat"
-
-	-- use "windwp/nvim-ts-autotag"
+	use {
+		"sbdchd/neoformat",
+		cond = { not_on_pi },
+	}
 
 	use {
 		"alvan/vim-closetag",
@@ -74,12 +86,9 @@ local packer = require("packer").startup(function(use)
 end)
 
 require("plugins.lspconfig")
-require("plugins.nvim-treesitter")
 require("plugins.nvim-autopairs")
 require("plugins.airline")
 require("plugins.indent-blankline")
-require("plugins.presence")
-require("plugins.telescope")
 require("plugins.vim-closetag")
 
 require("nvim_comment").setup()
