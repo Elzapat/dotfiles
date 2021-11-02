@@ -10,15 +10,21 @@ local packer = require("packer").startup(function(use)
 	use "sheerun/vim-polyglot"
 
 	use {
-		"neovim/nvim-lspconfig",
-	}
-
-	use {
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("plugins.nvim-treesitter")
 		end,
 	}
+
+	use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+	use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+	use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+	use 'L3MON4D3/LuaSnip' -- Snippets plugin
+
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
 
 	use "kyazdani42/nvim-web-devicons"
 
@@ -72,8 +78,6 @@ local packer = require("packer").startup(function(use)
 		end,
 	}
 
-	use "ron-rs/ron.vim"
-
 	use {
 		"sbdchd/neoformat",
 		cond = { not_on_pi },
@@ -82,6 +86,27 @@ local packer = require("packer").startup(function(use)
 	use {
 		"alvan/vim-closetag",
 		ft = { "html", "xhtml", "tsx", "jsx", "php" },
+	}
+
+	use "ron-rs/ron.vim"
+
+	use {
+		"dart-lang/dart-vim-plugin",
+		ft = { "dart" },
+	}
+
+	use {
+		"thosakwe/vim-flutter",
+		ft = { "dart" }
+	}
+
+	use {
+		'Saecki/crates.nvim',
+		event = { "BufRead Cargo.toml" },
+		requires = { { 'nvim-lua/plenary.nvim' } },
+		config = function()
+			require('crates').setup()
+		end,
 	}
 end)
 
