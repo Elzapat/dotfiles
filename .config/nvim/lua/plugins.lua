@@ -108,6 +108,15 @@ local packer = require("packer").startup(function(use)
 			require('crates').setup()
 		end,
 	}
+
+	use {
+		"iamcco/markdown-preview.nvim",
+		ft = { "markdown", "md" }
+	}
+	
+	use {
+		"beeender/Comrade"
+	}
 end)
 
 require("plugins.lspconfig")

@@ -17,7 +17,7 @@ npairs.add_rule(
 
 -- Matching curly bracket in Rust, JavaScript, TypeScript and PHP strings
 npairs.add_rule(
-  Rule("{", "}", { "rust", "javascript", "typescript", "javascriptreact", "typescriptreact", "php" })
+  Rule("{", "}", { "rust", "javascript", "typescript", "javascriptreact", "typescriptreact", "php", "python" })
     :with_pair(ts_conds.is_ts_node({ "string" }))
 )
 
