@@ -46,13 +46,6 @@ local packer = require("packer").startup(function(use)
 	}
 
 	use {
-		"ellisonleao/gruvbox.nvim",
-		requires = { "rktjmp/lush.nvim" }
-	}
-
-	use "eddyekofo94/gruvbox-flat.nvim"
-
-	use {
 		"OmniSharp/omnisharp-vim",
 		ft = { "cs" }
 	}
@@ -119,6 +112,14 @@ local packer = require("packer").startup(function(use)
 	use {
 		"beeender/Comrade"
 	}
+
+	-- Themes
+	use {
+		"ellisonleao/gruvbox.nvim",
+		requires = { "rktjmp/lush.nvim" }
+	}
+	use "eddyekofo94/gruvbox-flat.nvim"
+	use "folke/tokyonight.nvim"
 end)
 
 require("plugins.lspconfig")
