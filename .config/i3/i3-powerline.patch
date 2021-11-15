@@ -1,0 +1,40 @@
+diff --git a/libi3/font.c b/libi3/font.c
+index 81091ea7..cd04f1c5 100644
+--- a/libi3/font.c
++++ b/libi3/font.c
+@@ -86,18 +86,20 @@ static bool load_pango_font(i3Font *font, const char *desc) {
+ static void draw_text_pango(const char *text, size_t text_len,
+                             xcb_drawable_t drawable, xcb_visualtype_t *visual, int x, int y,
+                             int max_width, bool pango_markup) {
++    bool separator = (text[0] == ""[0]);
+     /* Create the Pango layout */
+     /* root_visual_type is cached in load_pango_font */
+-    cairo_surface_t *surface = cairo_xcb_surface_create(conn, drawable,
+-                                                        visual, x + max_width, y + savedFont->height);
++    cairo_surface_t *surface = cairo_xcb_surface_create(conn, drawable, visual,
++        x + max_width + (separator ? 5 : 0),
++        y + savedFont->height + (separator ? 2 : 0));
+     cairo_t *cr = cairo_create(surface);
+     PangoLayout *layout = create_layout_with_dpi(cr);
+     gint height;
+
+-    pango_layout_set_font_description(layout, savedFont->specific.pango_desc);
++    pango_layout_set_font_description(layout, pango_font_description_from_string(separator ? "JetBrainsMono Nerd Font 14" : "JetBrainsMono Nerd Font 10"));
+     pango_layout_set_width(layout, max_width * PANGO_SCALE);
+     pango_layout_set_wrap(layout, PANGO_WRAP_CHAR);
+-    pango_layout_set_ellipsize(layout, PANGO_ELLIPSIZE_END);
++    pango_layout_set_ellipsize(layout, PANGO_ELLIPSIZE_NONE);
+
+     if (pango_markup)
+         pango_layout_set_markup(layout, text, text_len);
+@@ -111,8 +113,8 @@ static void draw_text_pango(const char *text, size_t text_len,
+     pango_layout_get_pixel_size(layout, NULL, &height);
+     /* Center the piece of text vertically if its height is smaller than the
+      * cached font height, and just let "high" symbols fall out otherwise. */
+-    int yoffset = (height < savedFont->height ? 0.5 : 1) * (height - savedFont->height);
+-    cairo_move_to(cr, x, y - yoffset);
++    int yoffset = /*(height < savedFont->height ? 0.5 : 1)*/ 0.5 * (height - savedFont->height);
++    cairo_move_to(cr, x - (separator ? 3 : 0), y - yoffset);
+     pango_cairo_show_layout(cr, layout);
+
+     /* Free resources */

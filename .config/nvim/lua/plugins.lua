@@ -50,6 +50,8 @@ local packer = require("packer").startup(function(use)
 		requires = { "rktjmp/lush.nvim" }
 	}
 
+	use "eddyekofo94/gruvbox-flat.nvim"
+
 	use {
 		"OmniSharp/omnisharp-vim",
 		ft = { "cs" }
@@ -85,7 +87,7 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"alvan/vim-closetag",
-		ft = { "html", "xhtml", "tsx", "jsx", "php" },
+		ft = { "html", "xhtml", "tsx", "jsx", "php", "twig", "html.twig" },
 	}
 
 	use "ron-rs/ron.vim"
@@ -113,7 +115,7 @@ local packer = require("packer").startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown", "md" }
 	}
-	
+
 	use {
 		"beeender/Comrade"
 	}
