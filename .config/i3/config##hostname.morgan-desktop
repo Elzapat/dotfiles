@@ -268,13 +268,16 @@ for_window [class="^Spotify$"] move to workspace $media_workspace
 for_window [class="^vivaldi-stable$"] move to workspace $browser_workspace
 
 # Open windows on startup
+exec --no-startup-id vivaldi-stable
 exec --no-startup-id spotify
 # exec --no-startup-id firefox
-exec --no-startup-id vivaldi-stable
 exec --no-startup-id discord
 exec --no-startup-id steam
 exec --no-startup-id signal-desktop
 exec --no-startup-id alacritty
+exec --no-startup-id vivaldi-stable
+# exec i3-msg "workspace 2; exec --no-startup-id vivaldi; workspace 1"
+exec --no-startup-id shutter --min_at_startup
 
 # Move workspaces to another monitor bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
 bindsym $mod+Ctrl+eacute move workspace to output $monitor_middle
@@ -292,15 +295,12 @@ exec_always feh --converstion-timeout 1 --bg-fill /home/morgan/Pictures/wallpape
 # Mouse sensitivty
 exec_always $HOME/.scripts/mouse_accel.sh -0.85
 # exec_always xinput --set-prop 18 'libinput Accel Speed' <acceleration factor>
-# Screenshots shortcuts
-# Full desktop screenshot
-bindsym $mod+Shift+Print exec spectacle -b -c -f
-# Current screen screeshot
-bindsym $mod+Ctrl+Print exec spectacle -b -c -m
-# Active window screenshot
-bindsym $mod+Print exec spectacle -b -c -a -e
-# Custom region screenshot
-bindsym Print exec spectacle -b -c -r
+
+# take a screenshot of a screen region and copy it to a clipboard
+bindsym --release Shift+Print exec "$HOME/.scrips/screenshot.sh -s /home/morgan/screenshots/"
+
+# take a screenshot of a whole window and copy it to a clipboard
+bindsym --release Print exec "$HOME/.scripts/screenshot.sh -s /home/morgan/screenshots/"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {

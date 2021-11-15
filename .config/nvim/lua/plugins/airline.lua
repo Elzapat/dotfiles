@@ -1,5 +1,5 @@
 vim.api.nvim_exec([[
-  let g:airline_theme = "base16_gruvbox_dark_medium"
+  " let g:airline_theme = "base16_gruvbox_soft"
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ":t"
   let g:airline#extensions#tabline#formatter = "unique_tail"
