@@ -109,10 +109,6 @@ local packer = require("packer").startup(function(use)
 		ft = { "markdown", "md" }
 	}
 
-	use {
-		"beeender/Comrade"
-	}
-
 	-- Themes
 	use {
 		"ellisonleao/gruvbox.nvim",
@@ -120,6 +116,8 @@ local packer = require("packer").startup(function(use)
 	}
 	use "eddyekofo94/gruvbox-flat.nvim"
 	use "folke/tokyonight.nvim"
+
+	use "dstein64/vim-startuptime"
 end)
 
 require("plugins.lspconfig")

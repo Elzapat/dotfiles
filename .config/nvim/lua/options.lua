@@ -28,3 +28,6 @@ vim.cmd "autocmd CmdlineLeave /,? :set nohlsearch"
 
 vim.cmd "filetype indent on"
 -- vim.cmd "autocmd filetype * set indentexpr=off"
+-- vim.cmd [[ autocmd BufEnter * set indentexpr= ]]
+vim.opt.cindent = false
+vim.cmd [[ let g:polyglot_disabled = ['sensible'] ]]

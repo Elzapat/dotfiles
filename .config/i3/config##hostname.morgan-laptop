@@ -271,7 +271,7 @@ assign [class="^Pidgin$"] $work_workspace
 assign [class="^Slack$"] $work_workspace
 assign [class="^TeamSpeak 3$"] $chat_workspace
 
-exec --no-startup-id i3-msg 'workspace "3"; append_layout /home/morgan/.config/i3/satelliz_layoutjson'
+# exec --no-startup-id i3-msg 'workspace "3"; append_layout /home/morgan/.config/i3/satelliz_layoutjson'
 
 for_window [class="^Spotify$"] move to workspace $media_workspace
 for_window [class="^vivaldi-stable$"] move to workspace $browser_workspace
@@ -327,15 +327,15 @@ bindsym Print exec spectacle -b -c -r
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
-        bindsym e exec --no-startup-id i3exit logout, mode "default"
-        bindsym s exec --no-startup-id i3exit suspend, mode "default"
-        bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-        bindsym r exec --no-startup-id i3exit reboot, mode "default"
-        bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
 # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 bindsym $mod+Pause mode "$mode_system"
 
