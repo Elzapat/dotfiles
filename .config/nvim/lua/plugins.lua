@@ -106,7 +106,12 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"iamcco/markdown-preview.nvim",
-		ft = { "markdown", "md" }
+		ft = { "markdown", "md" },
+	}
+
+	use {
+		"jalvesaq/Nvim-R",
+		ft = { "r" },
 	}
 
 	-- Themes
@@ -116,6 +121,7 @@ local packer = require("packer").startup(function(use)
 	}
 	use "eddyekofo94/gruvbox-flat.nvim"
 	use "folke/tokyonight.nvim"
+	use "nanotech/jellybeans.vim"
 
 	use "dstein64/vim-startuptime"
 end)
