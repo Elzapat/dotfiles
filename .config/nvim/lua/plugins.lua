@@ -12,7 +12,7 @@ local packer = require("packer").startup(function(use)
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
-			require("plugins.nvim-treesitter")
+			-- require("plugins.nvim-treesitter")
 		end,
 	}
 
