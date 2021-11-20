@@ -36,6 +36,7 @@ vim.cmd "filetype indent on"
 -- vim.cmd [[ set cinoptions=m1 ]]
 -- vim.cmd [[ set indentexpr=GetRustIndent() ]]
 
+vim.o.expandtab = true
 if not vim.opt.tabstop._info.was_set then
 	vim.o.tabstop = 4
 	vim.o.shiftwidth = 4
