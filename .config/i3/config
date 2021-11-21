@@ -138,7 +138,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-exec_always --no-startup-id  $HOME/.config/polybar/launch.sh --forest
+exec_always --no-startup-id  $HOME/.config/polybar/launch.sh
 
 # bar {
 #     font pango: JetBrainsMono Nerd font 11
