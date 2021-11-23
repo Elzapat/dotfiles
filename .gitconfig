@@ -5,3 +5,6 @@
 	tool = nvimdiff
 [init]
 	defaultBranch = main
+[credential]
+	credentialStore = gpg
+	helper = manager-core
