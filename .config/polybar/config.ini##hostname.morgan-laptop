@@ -1,4 +1,5 @@
 include-file = ~/.config/polybar/colors.ini
+include-file = ~/.config/polybar/modules.ini
 
 [global/wm]
 margin-bottom = 0
@@ -45,3 +46,41 @@ font-2 = "feather:size=11;3"
 modules-left = i3 sep cpu memory filesystem
 modules-center = spotify sep date
 modules-right = pulseaudio sep network sep backlight battery
+
+[module/backlight]
+type = internal/backlight
+card = amdgpu_bl0
+use-actual-brightness = true
+format = %{F#FDD835} <label>
+label = %percentage%%
+
+[module/battery]
+type = internal/battery
+full-at = 99
+; format-charging = <ramp-capacity> <label-charging>
+; format-discharging = <ramp-capacity> <label-discharging>
+format-charging = <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-charging = %percentage%% %consumption%W
+label-discharging = %percentage%% %consumption%W
+ramp-capacity-0 = %{F#EC7875}
+ramp-capacity-1 = %{F#E57C46}
+ramp-capacity-2 = %{F#FDD835}
+ramp-capacity-3 = %{F#B9C244}
+ramp-capacity-4 = %{F#61C766}
+
+[module/network]
+type = internal/network
+interface = wlp1s0
+interval = 1.0
+accumulate-stats = true
+unknown-as-up = true
+
+format-connected = <label-connected>
+; format-connected-prefix = 
+; format-connected-prefix-foreground = ${color.purple}
+format-disconnected = <label-disconnected>
+; format-disconnected-prefix = 
+; format-disconnected-prefix-foreground = ${color.orange}
+label-connected = %{F#B2C233} %upspeed% %{F#00B19F} %downspeed%
+
