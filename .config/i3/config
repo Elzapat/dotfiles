@@ -257,6 +257,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 # assign [class="spotify"] $media_workspace
 assign [class="^firefox$"] $browser_workspace
 assign [class="^vivaldi-sable$"] $browser_workspace
+assign [title=".*Vivaldi.*"] $browser_workspace
 assign [class="^discord$"] $chat_workspace
 assign [class="^Signal$"] $chat_workspace
 assign [class="^.*Steam.*$"] $game_workspace
@@ -275,7 +276,7 @@ for_window [class="^vivaldi-stable$"] move to workspace $browser_workspace
 exec --no-startup-id vivaldi-stable
 exec --no-startup-id spotify
 # exec --no-startup-id firefox
-exec --no-startup-id discord
+exec --no-startup-id discord-canary
 exec --no-startup-id steam
 exec --no-startup-id signal-desktop
 exec --no-startup-id alacritty

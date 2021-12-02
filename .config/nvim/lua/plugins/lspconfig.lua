@@ -6,7 +6,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'dartls', 'tsserver', 'pyright', 'cssls' }
+local servers = { 'clangd', 'rust_analyzer', 'dartls', 'tsserver', 'pyright', 'cssls', 'hls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     -- on_attach = my_custom_on_attach,

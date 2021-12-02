@@ -45,4 +45,4 @@ font-2 = "feather:size=11;3"
 
 modules-left = i3 sep cpu memory filesystem
 modules-center = spotify sep date
-modules-right = github_token sep pulseaudio sep network
+modules-right = pulseaudio sep network
