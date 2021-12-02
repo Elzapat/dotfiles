@@ -83,4 +83,3 @@ format-disconnected = <label-disconnected>
 ; format-disconnected-prefix = 
 ; format-disconnected-prefix-foreground = ${color.orange}
 label-connected = %{F#B2C233} %upspeed% %{F#00B19F} %downspeed%
-
