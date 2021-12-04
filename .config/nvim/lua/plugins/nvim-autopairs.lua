@@ -18,6 +18,7 @@ npairs.setup {
 npairs.add_rule(
   Rule("<", ">", { "rust", "cpp" })
     :with_pair(cond.not_before_regex_check(" "))
+    :with_pair(cond.not_before_regex_check("<"))
 )
 
 -- Matching curly bracket in Rust, JavaScript, TypeScript and PHP strings
