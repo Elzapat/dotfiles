@@ -15,19 +15,13 @@ font:
     family: CozetteVector
     style: Bold
 
+  italic:
+    family: CozetteVector
+    style: Italic
+
   size: 9.5
 
-  # normal:
-  #   family: CozetteVector
-  #   style: Medium
-
-  # bold:
-  #   family: CozetteVector
-  #   style: Bold
 window:
-  padding:
-    x: 5
-    y: 5
   dynamic_padding: true
 
 # colors:
