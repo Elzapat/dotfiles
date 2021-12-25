@@ -148,7 +148,10 @@ setxkbmap -option caps:swapescape
 
 neofetch
 
-# eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C "/usr/bin/symfony self:autocomplete --zsh" symfony
 
@@ -166,3 +169,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+#
+# random font
+sh $HOME/.scripts/choose_random_font.sh

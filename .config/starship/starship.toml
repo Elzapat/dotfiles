@@ -1,0 +1,17 @@
+add_newline = false
+
+format = """
+$directory$time$all
+"""
+
+[directory]
+truncation_length = 8
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[time]
+disabled = false
+
+[cmd_duration]
+min_time = 0
+show_milliseconds = true
