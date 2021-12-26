@@ -35,3 +35,6 @@ map("i", "<A-m>", "<Right>", { noremap = true })
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<cr>", { noremap = true })
 map("n", "<leader>p", ":Telescope find_files<cr>", { noremap = true })
+
+map("n", "<leader>f", ":lua vim.lsp.buf.formatting()<CR>", { noremap = true })
+map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
