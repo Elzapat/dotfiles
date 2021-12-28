@@ -1,12 +1,22 @@
 add_newline = false
 
 format = """
-$directory$time$all
+$username[@](blue)$hostname $directory$time$all
 """
 
 [character]
-success_symbol = "[-> \\$](bold yellow)"
-error_symbol = "[-> \\$](bold blue)"
+success_symbol = "[-> \\$](yellow)"
+error_symbol = "[-> \\$](blue)"
+
+[username]
+format = "[$user]($style)"
+style_user = "bold blue"
+show_always = true
+
+[hostname]
+format = "[$hostname]($style)"
+style = "bold blue"
+ssh_only = false
 
 [status]
 disabled = true
