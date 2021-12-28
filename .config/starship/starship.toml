@@ -4,7 +4,15 @@ format = """
 $directory$time$all
 """
 
+[character]
+success_symbol = "[-> \\$](bold yellow)"
+error_symbol = "[-> \\$](bold blue)"
+
+[status]
+disabled = true
+
 [directory]
+format = "[\\[$path\\]]($style)[$read_only]($read_only_style) "
 truncation_length = 8
 truncation_symbol = "…/"
 truncate_to_repo = false
@@ -15,3 +23,6 @@ disabled = false
 [cmd_duration]
 min_time = 0
 show_milliseconds = true
+
+[jobs]
+disabled = true

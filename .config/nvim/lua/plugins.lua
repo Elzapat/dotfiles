@@ -16,7 +16,22 @@ local packer = require("packer").startup(function(use)
 		end,
 	}
 
-	use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+	use {
+		'neovim/nvim-lspconfig',
+		after = "cmp-nvim-lsp",
+		config = {
+			show_line_diagnostices = function()
+				local opts = {
+					focusable = false,
+					close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+					border = "rounded",
+					source = "always",
+					prefix = " "
+				}
+				vim.diagnostics.open_float(nil, opts)
+			end,
+		}
+	}
 	use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
 	use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
 	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
