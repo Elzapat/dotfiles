@@ -9,6 +9,7 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+bindkey '^ ' autosuggest-accept
 : ${ZSH_HIGHLIGHT_STYLES[path]:=bold}
 
 _fix_cursor() {
