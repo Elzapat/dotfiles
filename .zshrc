@@ -7,10 +7,9 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
-
-ZSH_HIGHLIGHT_STYLES[path]='bold'
-
 source $ZSH/oh-my-zsh.sh
+
+: ${ZSH_HIGHLIGHT_STYLES[path]:=bold}
 
 _fix_cursor() {
  echo -ne '\e[6 q'
@@ -81,4 +80,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # random font
-sh $HOME/.scripts/choose_random_font.sh
+bash $HOME/.scripts/choose_random_font.sh
