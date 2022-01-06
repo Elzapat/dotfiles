@@ -13,7 +13,7 @@ local packer = require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			-- require("plugins.nvim-treesitter")
-		end,
+	  end,
 	}
 
 	use {
@@ -141,11 +141,11 @@ local packer = require("packer").startup(function(use)
 	use "dstein64/vim-startuptime"
 end)
 
-require("plugins.lspconfig")
 require("plugins.nvim-autopairs")
 require("plugins.airline")
 require("plugins.indent-blankline")
 require("plugins.vim-closetag")
+require("plugins.lspconfig")
 
 require("nvim_comment").setup()
 require("bufferline").setup()
