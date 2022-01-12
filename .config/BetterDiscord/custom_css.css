@@ -1,0 +1,83 @@
+/* ==========
+RemoveButtons.theme.css by cheesits456 (https://cheesits456.dev)
+For CSS compatible with browser extensions, see
+https://gist.github.com/cheesits456/0d5bede837f022e443e9a5fc4aa386cb#file-discordbrowserstyles-css-L1
+========== */
+
+/* Hide Nitro gift button */
+button[aria-label="Send a gift"] {
+  display: none;
+}
+/* Hide GIF picker button */
+button[aria-label="Open GIF picker"] {
+  display: none;
+}
+/* Hide sticker picker button */
+button[aria-label="Open sticker picker"] {
+  display: none;
+}
+/* Hide annoying sticker popup window that appears when you type */
+.da-channelTextArea > .container-JHR0NT {
+  display: none;
+}
+
+:root {
+  --background-tertiary: #282828;
+  --background-secondary: #282828;
+  --background-secondary-alt: #282828;
+  --background-accent: #282828;
+  --background-primary: #282828;
+  --background-mobile-primary: #282828;
+  --background-mobile-secondary: #282828;
+  --interactive-muted: #282828;
+  --channeltextarea-background: #282828;
+  --interactive-muted: #454545;
+}
+
+.peopleColumn-29fq28 {
+  background: #282828;
+}
+
+.scroller-wrap .scroller ::-webkit-scrollbar-thumb {
+  background: #DFFF00;
+}
+
+.scroller-wrap .scroller ::-webkit-scrollbar-track-piece {
+  background: #DFFF00;
+}
+
+.scroller-wrap .scrollbar {
+  background: #DFFF00;
+}
+
+.scroller-2LSbBU
+.auto-Ge5KZx
+.scrollerBase-289Jih
+.disableScrollAnchor-3V9UtP {
+  background: #DFFF00;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #DFFF00;
+  border: 2px solid #DFFF00;
+  border-radius: 10px;
+}
+
+.markup-2BOw-j code {
+  background: #252525;
+}

@@ -50,7 +50,7 @@ fi
 
 if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
-  alias cat='bat -pp --theme="gruvbox-dark" --style=numbers'
+  alias cat='bat -pp --theme="gruvbox-dark"'
 fi
 
 source "$HOME/.cargo/env"
@@ -69,13 +69,13 @@ complete -o nospace -C "/usr/bin/symfony self:autocomplete --zsh" symfony
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/morgan/.local/share/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/home/morgan/.local/share/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/morgan/.local/share/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/morgan/.local/share/miniconda3/bin:$PATH"
-    fi
+  if [ -f "/home/morgan/.local/share/miniconda3/etc/profile.d/conda.sh" ]; then
+    . "/home/morgan/.local/share/miniconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/home/morgan/.local/share/miniconda3/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<

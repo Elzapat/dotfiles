@@ -279,7 +279,7 @@ exec --no-startup-id discord
 exec --no-startup-id steam
 exec --no-startup-id signal-desktop
 exec --no-startup-id alacritty
-exec --no-startup-id vivaldi-stable
+exec --no-startup-id firefox
 # exec i3-msg "workspace 2; exec --no-startup-id vivaldi; workspace 1"
 exec --no-startup-id shutter --min_at_startup
 

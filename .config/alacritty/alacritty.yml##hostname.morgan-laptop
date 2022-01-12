@@ -3,11 +3,12 @@ env:
 
 font:
   normal:
-    family: CozetteVector
-    style: Medium
+    # family: CozetteVector
+    family: Comic Mono
+    style: Regular
 
   bold:
-    family: CozetteVector
+    family: Comic Mono
     style: Bold
 
   italic:
