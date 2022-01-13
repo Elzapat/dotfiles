@@ -20,10 +20,12 @@ if [ "$HOSTNAME" = "morgan-desktop" ]; then
   )
 fi
 
+config_file=$HOME/.config/alacritty/alacritty.yml##hostname.$(hostname)
+
 random_index=$(($RANDOM % ${#fonts[@]}))
 font=${fonts[$random_index]%%:*}
 size=${fonts[$random_index]##*:}
 
-sed -i "s/family: .*/family: $font/g" $HOME/.config/alacritty/alacritty.yml
-sed -i "s/size: .*/size: $size/g" $HOME/.config/alacritty/alacritty.yml
-touch $HOME/.config/alacritty/alacritty.yml
+sed -i "s/family: .*/family: $font/g" $config_file
+sed -i "s/size: .*/size: $size/g" $config_file
+yadm status > /dev/null
