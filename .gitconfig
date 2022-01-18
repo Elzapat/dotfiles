@@ -8,3 +8,5 @@
 [credential]
 	credentialStore = gpg
 	helper = manager-core
+[pull]
+	rebase = false
