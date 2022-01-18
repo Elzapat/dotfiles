@@ -8,7 +8,9 @@ fonts=(
   # "TerminessTTF Nerd Font:9.5"
 )
 
-if [ "$HOSTNAME" = "morgan-desktop" ]; then
+hostname=$(cat /etc/hostname)
+
+if [ "$hostname" = "morgan-desktop" ]; then
   fonts=(
     # "CozetteVector:9.5"
     # "SauceCodePro Nerd Font:8.5"
@@ -20,7 +22,7 @@ if [ "$HOSTNAME" = "morgan-desktop" ]; then
   )
 fi
 
-config_file=$HOME/.config/alacritty/alacritty.yml##hostname.$(hostname)
+config_file=$HOME/.config/alacritty/alacritty.yml##hostname.$hostname
 
 random_index=$(($RANDOM % ${#fonts[@]}))
 font=${fonts[$random_index]%%:*}
