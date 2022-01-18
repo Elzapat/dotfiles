@@ -7,21 +7,21 @@ window:
 
 font:
   normal:
-    # family: Sauce Code Pro Nerd Font
-    # family: JetBrainsMono Nerd Font
-    family: CozetteVector
+    # family: VictorMono Nerd Font
+    # family: VictorMono Nerd Font
+    family: VictorMono Nerd Font
     style: Regular
 
   bold:
-    # family: Sauce Code Pro Nerd Font
-    family: CozetteVector
+    # family: VictorMono Nerd Font
+    family: VictorMono Nerd Font
     style: Bold
 
   italic:
-    family: Victor Mono
+    family: VictorMono Nerd Font
     style: Italic
 
-  size: 14
+  size: 13.0
 
 # colors:
 #   # Default colors

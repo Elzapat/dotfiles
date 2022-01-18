@@ -18,19 +18,19 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		'neovim/nvim-lspconfig',
-		after = "cmp-nvim-lsp",
-		config = {
-			show_line_diagnostices = function()
-				local opts = {
-					focusable = false,
-					close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-					border = "rounded",
-					source = "always",
-					prefix = " "
-				}
-				vim.diagnostics.open_float(nil, opts)
-			end,
-		}
+		-- after = "cmp-nvim-lsp",
+		-- config = {
+		-- 	show_line_diagnostices = function()
+		-- 		local opts = {
+		-- 			focusable = false,
+		-- 			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+		-- 			border = "rounded",
+		-- 			source = "always",
+		-- 			prefix = " "
+		-- 		}
+		-- 		vim.diagnostics.open_float(nil, opts)
+		-- 	end,
+		-- }
 	}
 	use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
 	use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
@@ -145,6 +145,7 @@ require("plugins.nvim-autopairs")
 require("plugins.airline")
 require("plugins.indent-blankline")
 require("plugins.vim-closetag")
+require("plugins.neoformat")
 require("plugins.lspconfig")
 
 require("nvim_comment").setup()

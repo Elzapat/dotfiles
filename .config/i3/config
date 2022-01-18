@@ -284,6 +284,7 @@ exec --no-startup-id firefox
 exec --no-startup-id shutter --min_at_startup
 
 # Move workspaces to another monitor bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
+bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
 bindsym $mod+Ctrl+eacute move workspace to output $monitor_middle
 bindsym $mod+Ctrl+quotedbl move workspace to output $monitor_right
 

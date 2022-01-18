@@ -21,16 +21,16 @@ map("", "<leader>j", "<C-w>h", { noremap = true })
 map("", "<leader>x", ":bd<cr>:bd #<cr>", { noremap = true })
 
 -- Movement
-map("", "m", "l", { noremap = true })
-map("", "l", "k", { noremap = true })
-map("", "k", "j", { noremap = true })
-map("", "j", "h", { noremap = true })
-map("", "h", "<Nop>", { noremap = true })
+-- map("", "m", "l", { noremap = true })
+-- map("", "l", "k", { noremap = true })
+-- map("", "k", "j", { noremap = true })
+-- map("", "j", "h", { noremap = true })
+-- map("", "h", "<Nop>", { noremap = true })
 
-map("i", "<A-j>", "<Left>", { noremap = true })
-map("i", "<A-k>", "<Down>", { noremap = true })
-map("i", "<A-l>", "<Up>", { noremap = true })
-map("i", "<A-m>", "<Right>", { noremap = true })
+map("i", "<A-h>", "<Left>", { noremap = true })
+map("i", "<A-j>", "<Down>", { noremap = true })
+map("i", "<A-k>", "<Up>", { noremap = true })
+map("i", "<A-l>", "<Right>", { noremap = true })
 
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<cr>", { noremap = true })
