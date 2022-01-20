@@ -26,6 +26,7 @@ alias su="su -p"
 alias rm="rm -iv"
 alias re-source="source ~/.zshrc"
 
+export GPG_TTY=$(tty)
 export TERM=screen-256color
 export EDITOR=nvim
 export QT_STYLE_OVERRIDE=adwaita

@@ -1,6 +1,7 @@
 [user]
 	email = vanamerongen.morgan@gmail.com
 	name = Morgan Van Amerongen
+	signkey = E312D8EA2672C6A1
 [merge]
 	tool = nvimdiff
 [init]
@@ -10,3 +11,5 @@
 	helper = manager-core
 [pull]
 	rebase = false
+[comit]
+	gpgsign = true

@@ -88,6 +88,8 @@ set $ws8 "8"
 set $ws9 "9"
 set $unknown_workspace "10"
 
+workspace_layout tabbed
+
 # switch to workspace
 bindsym $mod+ampersand workspace number $terminal_workspace
 bindsym $mod+eacute workspace number $browser_workspace
