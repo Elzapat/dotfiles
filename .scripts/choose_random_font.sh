@@ -17,7 +17,7 @@ if [ "$hostname" = "morgan-desktop" ]; then
     "JetBrainsMono Nerd Font:13.0"
     # "Hasklug Nerd Font:12.5"
     # "Iosevka:12.5"
-    "VictorMono Nerd Font:13.0"
+    # "VictorMono Nerd Font:13.0"
     # "TerminessTTF Nerd Font:9.5"
   )
 fi

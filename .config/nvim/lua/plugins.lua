@@ -17,8 +17,13 @@ local packer = require("packer").startup(function(use)
 	}
 
 	use {
-		'neovim/nvim-lspconfig',
-		-- after = "cmp-nvim-lsp",
+		"neovim/nvim-lspconfig"
+	}
+
+	--use {
+	--	'neovim/nvim-lspconfig',
+		-- commit = "d52e45acf9a55b025ce9c0161b922a814b65b631",
+	--	after = "cmp-nvim-lsp",
 		-- config = {
 		-- 	show_line_diagnostices = function()
 		-- 		local opts = {
@@ -31,11 +36,17 @@ local packer = require("packer").startup(function(use)
 		-- 		vim.diagnostics.open_float(nil, opts)
 		-- 	end,
 		-- }
-	}
+	--}
 	use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
 	use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
 	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 	use 'L3MON4D3/LuaSnip' -- Snippets plugin
+
+	use {
+		"simrat39/rust-tools.nvim",
+		ft = { "rust", "rs" },
+		config = function() require("plugins.rust-tools") end
+	}
 
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -147,6 +158,7 @@ require("plugins.indent-blankline")
 require("plugins.vim-closetag")
 require("plugins.neoformat")
 require("plugins.lspconfig")
+require("plugins.nvim-web-devicons")
 
 require("nvim_comment").setup()
 require("bufferline").setup()

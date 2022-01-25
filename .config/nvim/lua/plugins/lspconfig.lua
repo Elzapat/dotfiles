@@ -72,13 +72,24 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'dartls', 'tsserver', 'pyright', 'cssls', 'hls' }
+local servers = { 'clangd', 'dartls', 'tsserver', 'pyright', 'cssls', 'hls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     -- on_attach = custom_attach,
     capabilities = capabilities,
   }
 end
+
+-- nvim_lsp["rls"].setup {
+--   cmd = {"rustup", "run", "nightly", "rls"},
+--   settings = {
+--     rust = {
+--       unstable_features = true,
+--       build_on_save = false,
+--       all_features = true,
+--     },
+--   },
+-- }
 
 nvim_lsp["rust_analyzer"].setup {
   on_attach = custom_attach,
@@ -178,21 +189,21 @@ vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSig
 -- global config for diagnostic
 vim.diagnostic.config({
   underline = true,
-  virtual_text = false,
+  virtual_text = true,
   signs = true,
   severity_sort = true,
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  virtual_text = false,
-  signs = true,
-  update_in_insert = true,
-})
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
-
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--   underline = true,
+--   virtual_text = true,
+--   signs = true,
+--   update_in_insert = true,
+-- })
+-- 
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+--   border = "rounded",
+-- })
+-- 
 -- Change border of documentation hover window, See https://github.com/neovim/neovim/pull/13998.
 -- return M

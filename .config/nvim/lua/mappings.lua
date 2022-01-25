@@ -38,3 +38,6 @@ map("n", "<leader>p", ":Telescope find_files<cr>", { noremap = true })
 
 map("n", "<leader>f", ":lua vim.lsp.buf.formatting()<CR>", { noremap = true })
 map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+
+map("", "<leader>en", ":lua vim.lsp.diagnostic.goto_next()<cr>", { noremap = true })
+map("", "<leader>ep", ":lua vim.lsp.diagnostic.goto_prev()<cr>", { noremap = true })
