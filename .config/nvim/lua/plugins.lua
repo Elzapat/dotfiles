@@ -48,6 +48,11 @@ local packer = require("packer").startup(function(use)
 		config = function() require("plugins.rust-tools") end
 	}
 
+	use {
+		"lervag/vimtex",
+		ft = { "tex", "plaintex" },
+	}
+
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
@@ -158,7 +163,8 @@ require("plugins.indent-blankline")
 require("plugins.vim-closetag")
 require("plugins.neoformat")
 require("plugins.lspconfig")
-require("plugins.nvim-web-devicons")
+require("plugins.vimtex")
+--require("plugins.nvim-web-devicons")
 
 require("nvim_comment").setup()
 require("bufferline").setup()

@@ -27,6 +27,8 @@ npairs.add_rule(
 --     :with_pair(ts_conds.is_ts_node({ "string" }))
 -- )
 
+npairs.add_rule(Rule("{%", "%", { "html.twig" }))
+
 npairs.add_rule(Rule("$$", "$$", { "tex", "latex" }))
 
 -- npairs.get_rule("("):replace_map_cr(function() return "<cr><cr><bs><Up><C-f>" end)
