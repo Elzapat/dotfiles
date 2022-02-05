@@ -106,12 +106,11 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"sbdchd/neoformat",
-		cond = { not_on_pi },
 	}
 
 	use {
 		"alvan/vim-closetag",
-		ft = { "html", "xhtml", "tsx", "jsx", "php", "twig", "html.twig" },
+		ft = { "html", "xhtml", "tsx", "jsx", "php", "twig", "html.twig", "markdown" },
 	}
 
 	use "ron-rs/ron.vim"
@@ -137,6 +136,7 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"iamcco/markdown-preview.nvim",
+		run = "cd app && yarn install",
 		ft = { "markdown", "md" },
 	}
 
@@ -164,7 +164,7 @@ require("plugins.vim-closetag")
 require("plugins.neoformat")
 require("plugins.lspconfig")
 require("plugins.vimtex")
---require("plugins.nvim-web-devicons")
+require("plugins.nvim-web-devicons")
 
 require("nvim_comment").setup()
 require("bufferline").setup()
