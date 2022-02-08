@@ -2,6 +2,10 @@ local not_on_pi = function()
 	return vim.api.nvim_eval("hostname()") ~= "morgan-pi"
 end
 
+local not_started_by_firenvim = function()
+	return vim.api.nvim_eval("exists('g:started_by_firenvim')") == 0
+end
+
 local packer = require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 
@@ -61,6 +65,7 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"akinsho/bufferline.nvim",
+		-- cond = { not_started_by_firenvim },
 	}
 
 	use {
@@ -110,7 +115,7 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"alvan/vim-closetag",
-		ft = { "html", "xhtml", "tsx", "jsx", "php", "twig", "html.twig", "markdown" },
+		ft = { "html", "xhtml", "tsx", "jsx", "php", "twig", "html.twig", "markdown", "handlebars" },
 	}
 
 	use "ron-rs/ron.vim"
@@ -155,6 +160,13 @@ local packer = require("packer").startup(function(use)
 	use "nanotech/jellybeans.vim"
 
 	use "dstein64/vim-startuptime"
+
+
+	use {
+		"glacambre/firenvim",
+		cond = { not_on_pi },
+		run = function() vim.fn['firenvim#install'](0) end
+	}
 end)
 
 require("plugins.nvim-autopairs")
@@ -165,6 +177,7 @@ require("plugins.neoformat")
 require("plugins.lspconfig")
 require("plugins.vimtex")
 require("plugins.nvim-web-devicons")
+require("plugins.firenvim")
 
 require("nvim_comment").setup()
 require("bufferline").setup()

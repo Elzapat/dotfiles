@@ -50,8 +50,8 @@ vim.o.expandtab = true
 -- ]]
 
 vim.cmd[[
-	autocmd BufRead *.rs,*.c,*.cpp set tabstop=4
-	autocmd BufRead *.rs,*.c,*.cpp set shiftwidth=4
+	autocmd BufRead *.rs,*.c,*.cpp,*.html,*.hbs set tabstop=4
+	autocmd BufRead *.rs,*.c,*.cpp,*.html,*.hbs set shiftwidth=4
 ]]
 
 vim.cmd [[
