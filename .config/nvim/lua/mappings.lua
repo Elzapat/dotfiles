@@ -13,10 +13,10 @@ map("n", "K", "J", { noremap = true })
 map("n", "<C-j>", ":bprevious<cr>", { noremap = true })
 map("n", "<C-m>", ":bnext<cr>", { noremap = true })
 
-map("", "<leader>m", "<C-w>l", { noremap = true })
-map("", "<leader>l", "<C-w>k", { noremap = true })
-map("", "<leader>k", "<C-w>j", { noremap = true })
-map("", "<leader>j", "<C-w>h", { noremap = true })
+map("", "<leader>l", "<C-w>l", { noremap = true })
+map("", "<leader>k", "<C-w>k", { noremap = true })
+map("", "<leader>j", "<C-w>j", { noremap = true })
+map("", "<leader>h", "<C-w>h", { noremap = true })
 
 map("", "<leader>x", ":bd<cr>:bd #<cr>", { noremap = true })
 

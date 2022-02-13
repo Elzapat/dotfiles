@@ -16,7 +16,7 @@ local packer = require("packer").startup(function(use)
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
-			-- require("plugins.nvim-treesitter")
+			-- require("configs.nvim-treesitter")
 	  end,
 	}
 
@@ -49,7 +49,6 @@ local packer = require("packer").startup(function(use)
 	use {
 		"simrat39/rust-tools.nvim",
 		ft = { "rust", "rs" },
-		config = function() require("plugins.rust-tools") end
 	}
 
 	use {
@@ -94,7 +93,7 @@ local packer = require("packer").startup(function(use)
 		"andweeb/presence.nvim",
 		cond = { not_on_pi },
 		config = function()
-			require("plugins.presence")
+			require("configs.presence")
 		end,
 	}
 
@@ -105,7 +104,7 @@ local packer = require("packer").startup(function(use)
 		requires = { { 'nvim-lua/plenary.nvim' } },
 		cond = { not_on_pi },
 		config = function()
-			require("plugins.telescope")
+			require("configs.telescope")
 		end,
 	}
 
@@ -169,17 +168,18 @@ local packer = require("packer").startup(function(use)
 	}
 end)
 
-require("plugins.nvim-autopairs")
-require("plugins.airline")
-require("plugins.indent-blankline")
-require("plugins.vim-closetag")
-require("plugins.neoformat")
-require("plugins.lspconfig")
-require("plugins.vimtex")
-require("plugins.nvim-web-devicons")
-require("plugins.firenvim")
+require("configs.nvim-autopairs")
+require("configs.airline")
+require("configs.indent-blankline")
+require("configs.vim-closetag")
+require("configs.neoformat")
+require("configs.lspconfig")
+require("configs.vimtex")
+require("configs.nvim-web-devicons")
+require("configs.firenvim")
+require("configs.bufferline")
+-- require("configs.rust-tools") 
 
 require("nvim_comment").setup()
-require("bufferline").setup()
 
 return packer

@@ -1,6 +1,8 @@
 vim.g.gruvbox_flat_style = "dark"
-vim.g.colors_name = "gruvbox-flat"
+vim.g.gruvbox_theme = {
+  BufferLineFill = {
+    bg = "#282828"
+  },
+}
 
--- vim.cmd("highlight Normal guibg=none")
--- vim.cmd("highlight Folded guibg=none")
--- vim.cmd("highlight Folded guifg=none")
+vim.g.colors_name = "gruvbox-flat"
