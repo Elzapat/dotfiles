@@ -25,6 +25,7 @@ alias tmuxconf="nvim /home/morgan/.config/tmux/tmux.conf"
 alias su="su -p"
 alias rm="rm -iv"
 alias re-source="source ~/.zshrc"
+alias gitzip="git archive HEAD -o ${PWD##*/}.zip"
 
 export GPG_TTY=$(tty)
 export TERM=screen-256color
@@ -47,6 +48,9 @@ if [ "$(command -v exa)" ]; then
   unalias -m 'ls'
   alias ls='exa -G --color auto --icons -a -s type'
   alias ll='exa -l --color always --icons -a -s type'
+  alias lll='exa -l --color always --icons -a -s type -T -L 2'
+  alias llll='exa -l --color always --icons -a -s type -T -L 3'
+  alias lllll='exa -l --color always --icons -a -s type -T -L 4'
 fi
 
 if [ "$(command -v bat)" ]; then

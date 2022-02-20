@@ -72,9 +72,8 @@ local packer = require("packer").startup(function(use)
 	}
 
 	use {
-		"vim-airline/vim-airline",
+		"nvim-lualine/lualine.nvim"
 	}
-	use "vim-airline/vim-airline-themes"
 
 	use {
 		"lukas-reineke/indent-blankline.nvim",
@@ -160,7 +159,6 @@ local packer = require("packer").startup(function(use)
 
 	use "dstein64/vim-startuptime"
 
-
 	use {
 		"glacambre/firenvim",
 		cond = { not_on_pi },
@@ -178,6 +176,7 @@ require("configs.vimtex")
 require("configs.nvim-web-devicons")
 require("configs.firenvim")
 require("configs.bufferline")
+require("configs.lualine")
 -- require("configs.rust-tools") 
 
 require("nvim_comment").setup()

@@ -12,6 +12,12 @@ require("bufferline").setup {
     tab = {
       guibg = "#282828"
     },
+    tab_selected = {
+      guibg = "#282828"
+    },
+    tab_close = {
+      guibg = "#282828"
+    },
     close_button = {
       guibg = "#282828"
     },
@@ -51,6 +57,24 @@ require("bufferline").setup {
       guibg = "#282828",
     },
     modified_selected = {
+      guibg = "#282828",
+    },
+    pick = {
+      guibg = "#282828",
+    },
+    pick_selected = {
+      guibg = "#282828",
+    },
+    pick_visible = {
+      guibg = "#282828",
+    },
+    duplicate_selected = {
+      guibg = "#282828",
+    },
+    duplicate_visible = {
+      guibg = "#282828",
+    },
+    duplicate = {
       guibg = "#282828",
     },
   }

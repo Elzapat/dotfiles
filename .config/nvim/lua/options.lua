@@ -28,6 +28,9 @@ vim.opt.hidden = true
 vim.cmd "autocmd CmdlineEnter /,? :set hlsearch"
 vim.cmd "autocmd CmdlineLeave /,? :set nohlsearch"
 
+vim.cmd "autocmd BufEnter *.tex set spell"
+vim.cmd "autocmd BufEnter *.tex set spelllang+=fr"
+
 vim.cmd "filetype indent on"
 -- vim.cmd [[ autocmd BufEnter * set indentexpr= ]]
 -- vim.o.cindent = false

@@ -52,12 +52,12 @@ font-0 = "JetBrainsMono Nerd Font:size=10;2"
 font-1 = "Iosevka Nerd Font:size=9;3"
 font-2 = "feather:size=11;3"
 
-tray-position = none 
+tray-position = right
 ; tray-detached = false
 
 modules-left = i3 sep github_token sep cpu memory filesystem
 modules-center = spotify sep date
-modules-right = pulseaudio sep network sep backlight sep battery
+modules-right = pulseaudio sep backlight sep battery
 
 [module/backlight]
 type = internal/backlight
@@ -65,23 +65,34 @@ card = amdgpu_bl0
 use-actual-brightness = true
 format = %{F#FDD835} <label>
 format-underline = ${color.yellow}
-label = %percentage%%
+label = %{F${color.white}%percentage%%
 
 [module/battery]
 type = internal/battery
 full-at = 99
 ; format-charging = <ramp-capacity> <label-charging>
 ; format-discharging = <ramp-capacity> <label-discharging>
-format-charging = <ramp-capacity> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
+; format-charging = <ramp-capacity> <label-charging>
+; format-discharging = <ramp-capacity> <label-discharging>
+format-charging = <ramp-capacity><label-charging>
+format-discharging = <ramp-capacity><label-discharging>
 label-charging = %percentage%% %consumption%W
+label-charging-underline = ${color.green}
+format-charging-underline = ${color.green}
 label-discharging = %percentage%% %consumption%W
-format-underline = ${color.cyan}
-ramp-capacity-0 = %{F#EC7875}
-ramp-capacity-1 = %{F#E57C46}
-ramp-capacity-2 = %{F#FDD835}
-ramp-capacity-3 = %{F#B9C244}
-ramp-capacity-4 = %{F#61C766}
+label-discharging-underline = ${color.indigo}
+format-discharging-underline = ${color.indigo}
+; ramp-capacity-0 = %{F#EC7875}
+; ramp-capacity-1 = %{F#E57C46}
+; ramp-capacity-2 = %{F#FDD835}
+; ramp-capacity-3 = %{F#B9C244}
+; ramp-capacity-4 = %{F#61C766}
+ramp-capacity-0 = %{F#EC7875}  %{F${color.white}
+ramp-capacity-1 = %{F#E57C46}  %{F${color.white}
+ramp-capacity-2 = %{F#FDD835}  %{F${color.white}
+ramp-capacity-3 = %{F#B9C244}  %{F${color.white}
+ramp-capacity-4 = %{F#61C766}  %{F${color.white}
+
 
 [module/network]
 type = internal/network
