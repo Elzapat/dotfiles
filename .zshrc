@@ -61,8 +61,6 @@ fi
 source "$HOME/.cargo/env"
 setxkbmap -option caps:swapescape
 
-neofetch
-
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
@@ -70,20 +68,7 @@ eval "$(zoxide init zsh)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C "/usr/bin/symfony self:autocomplete --zsh" symfony
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/morgan/.local/share/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-  eval "$__conda_setup"
-else
-  if [ -f "/home/morgan/.local/share/miniconda3/etc/profile.d/conda.sh" ]; then
-    . "/home/morgan/.local/share/miniconda3/etc/profile.d/conda.sh"
-  else
-    export PATH="/home/morgan/.local/share/miniconda3/bin:$PATH"
-  fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # random font
 bash $HOME/.scripts/choose_random_font.sh
+
+neofetch
