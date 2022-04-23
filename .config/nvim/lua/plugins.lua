@@ -9,8 +9,6 @@ end
 local packer = require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 
-	use "ishan9299/nvim-solarized-lua"
-
 	use "sheerun/vim-polyglot"
 
 	use {
@@ -153,6 +151,7 @@ local packer = require("packer").startup(function(use)
 		"ellisonleao/gruvbox.nvim",
 		requires = { "rktjmp/lush.nvim" }
 	}
+	use "ishan9299/nvim-solarized-lua"
 	use "eddyekofo94/gruvbox-flat.nvim"
 	use "folke/tokyonight.nvim"
 	use "nanotech/jellybeans.vim"

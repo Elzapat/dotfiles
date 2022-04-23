@@ -6,4 +6,20 @@ vim.g.gruvbox_theme = {
 }
 
 vim.g.colors_name = "gruvbox-flat"
+
+-- vim.g.gruvbox_italic_comments = false
+vim.g.gruvbox_italic_keywords = false
+
 -- vim.g.colors_name = "nord"
+
+-- vim.g.nord_contrast = true
+-- vim.g.nord_borders = false
+-- vim.g.nord_disable_background = true
+-- vim.g.nord_italic = false
+--
+-- -- Load the colorscheme
+-- local colorscheme = "nord"
+-- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+-- if not status_ok then
+--   return
+-- end
