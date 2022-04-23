@@ -156,6 +156,7 @@ local packer = require("packer").startup(function(use)
 	use "eddyekofo94/gruvbox-flat.nvim"
 	use "folke/tokyonight.nvim"
 	use "nanotech/jellybeans.vim"
+	use "shaunsingh/nord.nvim"
 
 	use "dstein64/vim-startuptime"
 

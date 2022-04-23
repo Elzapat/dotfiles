@@ -6,3 +6,4 @@ vim.g.gruvbox_theme = {
 }
 
 vim.g.colors_name = "gruvbox-flat"
+-- vim.g.colors_name = "nord"

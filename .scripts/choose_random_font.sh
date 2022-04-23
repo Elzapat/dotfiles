@@ -14,7 +14,7 @@ if [ "$hostname" = "morgan-desktop" ]; then
   fonts=(
     # "CozetteVector:9.5"
     # "SauceCodePro Nerd Font:8.5"
-    "JetBrainsMono Nerd Font:13.0"
+    "JetBrainsMono Nerd Font:11.5"
     # "Hasklug Nerd Font:12.5"
     # "Iosevka:12.5"
     # "VictorMono Nerd Font:13.0"
@@ -30,4 +30,3 @@ size=${fonts[$random_index]##*:}
 
 sed -i "s/family: .*/family: $font/g" $config_file
 sed -i "s/size: .*/size: $size/g" $config_file
-yadm status > /dev/null

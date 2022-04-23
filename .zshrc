@@ -28,7 +28,7 @@ alias re-source="source ~/.zshrc"
 alias gitzip="git archive HEAD -o ${PWD##*/}.zip"
 
 export GPG_TTY=$(tty)
-export TERM=screen-256color
+export TERM=xterm-256color
 export EDITOR=nvim
 export QT_STYLE_OVERRIDE=adwaita
 

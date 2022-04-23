@@ -24,9 +24,6 @@ foreground = ${color.foreground}
 radius-top = 0.0
 radius-bottom = 0.0
 
-line-size = 0
-line-color = ${color.background}
-
 border-bottom-size = 0
 border-bottom-color = ${color.foreground}
 
@@ -35,15 +32,18 @@ padding = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = CozetteVector:9;3
-font-1 = "JetBrainsMono Nerd Font:size=11;4"
+line-size = 2
+line-color = ${color.yellow}
+
+font-0 = "JetBrainsMono Nerd Font:size=10;2"
+font-1 = CozetteVector:9;3
 ; font-1 = "Iosevka Nerd Font:size=9;3"
 font-2 = "feather:size=11;3"
 
 tray-position = right
 ; tray-detached = false
 
-modules-left = i3 sep cpu memory filesystem
+modules-left = i3 sep cpu memory fs-root fs-games
 modules-center = spotify sep date
 modules-right = pulseaudio sep network
 
@@ -61,3 +61,5 @@ format-disconnected = <label-disconnected>
 ; format-disconnected-prefix = 
 ; format-disconnected-prefix-foreground = ${color.orange}
 label-connected = %{F#B2C233} %upspeed% %{F#00B19F} %downspeed%
+label-connected-underline = #B2C233
+format-underline = ${color.cyan}

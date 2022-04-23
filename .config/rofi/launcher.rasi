@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"CozetteVector 10";
+	font:							"JetBrainsMono Nerd Font 10";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
