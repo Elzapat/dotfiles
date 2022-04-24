@@ -184,15 +184,15 @@ bindsym $mod+r mode "resize"
 focus_follows_mouse no
 
 # Gaps
-for_window [class=".*"] gaps inner all set 10
-for_window [class=".*"] gaps outer all set 5
+for_window [class=".*"] gaps inner all set 8
+for_window [class=".*"] gaps outer all set 3
 # for_window [class=".*"] border pixel 3
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 3
 # default_border pixel 2
 # smart_gaps inverse_outer
 
 # Class                 border  bground text    indicator child_border
-client.focused          #282828 #282828 #FDD835 #6272A4   #6272A4
+client.focused          #202020 #282828 #FDD835 #202020   #202020
 client.focused_inactive #282828 #282828 #EBDBB2 #44475A   #44475A
 client.unfocused        #282828 #282828 #6C77BB #282A36   #282A36
 client.urgent           #EC7875 #282828 #EC7875 #FF5555   #FF5555
