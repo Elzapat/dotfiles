@@ -60,6 +60,6 @@ format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 ; format-disconnected-prefix = 
 ; format-disconnected-prefix-foreground = ${color.orange}
-label-connected = %{F#B2C233} %upspeed% %{F#00B19F} %downspeed%
+label-connected = %{F#B2C233} %{F-}%upspeed% %{F#B2C233}%{F-} %downspeed%
 label-connected-underline = #B2C233
 format-underline = ${color.cyan}

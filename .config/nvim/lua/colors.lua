@@ -1,9 +1,10 @@
 vim.g.gruvbox_flat_style = "dark"
 vim.g.gruvbox_theme = {
   BufferLineFill = {
-    bg = "#282828"
+    bg = "#202020"
   },
 }
+vim.g.gruvbox_transparent =  true
 
 vim.g.colors_name = "gruvbox-flat"
 

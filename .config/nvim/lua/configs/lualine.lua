@@ -1,6 +1,6 @@
 local gruvbox = require("lualine.themes.gruvbox")
 
-local bg = "#282828"
+local bg = "#202020"
 local modes = { "normal", "insert", "visual", "replace", "command", "inactive" }
 
 for _, mode in ipairs(modes) do

@@ -11,7 +11,8 @@ map("n", "K", "J", { noremap = true })
 
 -- Buffer movement
 map("n", "<C-j>", ":bprevious<cr>", { noremap = true })
-map("n", "<C-m>", ":bnext<cr>", { noremap = true })
+-- map("n", "<C-m>", ":bnext<cr>", { noremap = true })
+map("n", "<cr>", ":bnext<cr>", { noremap = true })
 
 map("", "<leader>l", "<C-w>l", { noremap = true })
 map("", "<leader>k", "<C-w>k", { noremap = true })
