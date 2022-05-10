@@ -51,7 +51,12 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"lervag/vimtex",
-		ft = { "tex", "plaintex" },
+		ft = { "tex", "plaintex", "markdown", "md" },
+	}
+
+	use {
+		"preservim/vim-markdown",
+		ft = { "markdown" }
 	}
 
 	use 'hrsh7th/cmp-buffer'

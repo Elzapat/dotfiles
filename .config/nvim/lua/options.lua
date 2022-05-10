@@ -57,9 +57,11 @@ vim.cmd[[
 	autocmd BufRead *.rs,*.c,*.cpp,*.html,*.hbs set shiftwidth=4
 ]]
 
-vim.cmd [[
+vim.cmd[[
 	set indentkeys+=0(
 	set cinkeys+=0(
 	set cinoptions+=(1s
 	set cinoptions-=(2s
 ]]
+
+vim.cmd[[let g:vim_markdown_math = 1]]

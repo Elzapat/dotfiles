@@ -184,20 +184,22 @@ bindsym $mod+r mode "resize"
 focus_follows_mouse no
 
 # Gaps
-for_window [class=".*"] gaps inner all set 8
-for_window [class=".*"] gaps outer all set 3
+# for_window [class=".*"] gaps inner all set 8
+# for_window [class=".*"] gaps outer all set 3
+for_window [class=".*"] gaps inner all set 0
+for_window [class=".*"] gaps outer all set 0
 # for_window [class=".*"] border pixel 3
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 0
 # default_border pixel 2
 # smart_gaps inverse_outer
 
 # Class                 border  bground text    indicator child_border
-client.focused          #101010 #282828 #FDD835 #101010   #101010
-client.focused_inactive #282828 #282828 #EBDBB2 #44475A   #44475A
-client.unfocused        #202020 #282828 #6C77BB #282A36   #202020
-client.urgent           #EC7875 #282828 #EC7875 #FF5555   #FF5555
+client.focused          #202020 #202020 #FDD835 #101010   #101010
+client.focused_inactive #202020 #202020 #EBDBB2 #44475A   #44475A
+client.unfocused        #202020 #202020 #6C77BB #282A36   #202020
+client.urgent           #EC7875 #202020 #EC7875 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #282828
+client.background       #202020
 
 exec_always --no-startup-id setxkbmap fr
 # exec --no-startup-id wmctrl -c Plasma
@@ -229,8 +231,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 exec xrandr --output DVI-D-0 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-1 --off
 
 # Assign workspaces to monitors
-set $monitor_middle "DP-0"
-set $monitor_left "HDMI-0"
+set $monitor_middle "eDP"
+set $monitor_left "HDMI-A-0"
 set $monitor_right "DVI-D-0"
 workspace $terminal_workspace output $monitor_middle
 workspace $browser_workspace output $monitor_right
@@ -284,7 +286,8 @@ exec --no-startup-id signal-desktop
 exec --no-startup-id alacritty
 exec --no-startup-id firefox
 # exec i3-msg "workspace 2; exec --no-startup-id vivaldi; workspace 1"
-exec --no-startup-id shutter --min_at_startup
+# exec --no-startup-id shutter --min_at_startup
+exec --no-startup-id flameshot
 
 # Move workspaces to another monitor bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
 bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
@@ -305,10 +308,12 @@ exec_always $HOME/.scripts/mouse_accel.sh -0.85
 # exec_always xinput --set-prop 18 'libinput Accel Speed' <acceleration factor>
 
 # take a screenshot of a screen region and copy it to a clipboard
-bindsym --release Shift+Print exec "$HOME/.scrips/screenshot.sh -s /home/morgan/screenshots/"
+# bindsym --release Shift+Print exec "$HOME/.scrips/screenshot.sh -s /home/morgan/screenshots/"
 
 # take a screenshot of a whole window and copy it to a clipboard
-bindsym --release Print exec "$HOME/.scripts/screenshot.sh -s /home/morgan/screenshots/"
+# bindsym --release Print exec "$HOME/.scripts/screenshot.sh -s /home/morgan/screenshots/"
+
+bindsym --release Print exec flameshot gui
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
