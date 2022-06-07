@@ -194,14 +194,17 @@ for_window [class=".*"] border pixel 0
 # smart_gaps inverse_outer
 
 # Class                 border  bground text    indicator child_border
-client.focused          #202020 #202020 #FDD835 #101010   #101010
-client.focused_inactive #202020 #202020 #EBDBB2 #44475A   #44475A
+client.focused          #202020 #202020 #FDD835 #202020   #202020
+client.focused_inactive #282828 #202020 #EBDBB2 #44475A   #202020
 client.unfocused        #202020 #202020 #6C77BB #282A36   #202020
 client.urgent           #EC7875 #202020 #EC7875 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.placeholder      #282A36 #202020 #F8F8F2 #282A36   #282A36
 client.background       #202020
 
 exec_always --no-startup-id setxkbmap fr
+# bindsym $mod+k setxkbmap us
+# bindsym $mod+f setxkbmap fr
+
 # exec --no-startup-id wmctrl -c Plasma
 # for_window [title="Desktop - Plasma"] kill; floating enable; border none
 
@@ -231,8 +234,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 exec xrandr --output DVI-D-0 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-1 --off
 
 # Assign workspaces to monitors
-set $monitor_middle "eDP"
-set $monitor_left "HDMI-A-0"
+set $monitor_middle "DP-0"
+set $monitor_left "HDMI-0"
 set $monitor_right "DVI-D-0"
 workspace $terminal_workspace output $monitor_middle
 workspace $browser_workspace output $monitor_right

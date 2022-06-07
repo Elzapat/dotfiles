@@ -13,9 +13,7 @@ local packer = require("packer").startup(function(use)
 
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		config = function()
-			-- require("configs.nvim-treesitter")
-	  end,
+		run = ":TSUpdate",
 	}
 
 	use {
@@ -45,7 +43,7 @@ local packer = require("packer").startup(function(use)
 	use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
 	use {
-		"simrat39/rust-tools.nvim",
+		"https://github.com/rust-lang/rust.vim",
 		ft = { "rust", "rs" },
 	}
 
@@ -161,6 +159,7 @@ local packer = require("packer").startup(function(use)
 	use "folke/tokyonight.nvim"
 	use "nanotech/jellybeans.vim"
 	use "shaunsingh/nord.nvim"
+	use "sainnhe/gruvbox-material"
 
 	use "dstein64/vim-startuptime"
 
@@ -169,6 +168,8 @@ local packer = require("packer").startup(function(use)
 		cond = { not_on_pi },
 		run = function() vim.fn['firenvim#install'](0) end
 	}
+
+	use 'karb94/neoscroll.nvim'
 end)
 
 require("configs.nvim-autopairs")
@@ -182,8 +183,10 @@ require("configs.nvim-web-devicons")
 require("configs.firenvim")
 require("configs.bufferline")
 require("configs.lualine")
+require("configs.nvim-treesitter")
 -- require("configs.rust-tools") 
 
 require("nvim_comment").setup()
+require("neoscroll").setup()
 
 return packer

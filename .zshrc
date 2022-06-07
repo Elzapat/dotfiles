@@ -71,4 +71,6 @@ complete -o nospace -C "/usr/bin/symfony self:autocomplete --zsh" symfony
 # random font
 bash $HOME/.scripts/choose_random_font.sh
 
+export STEAM_EXTRA_COMPAT_TOOLS_PATH=$STEAM_EXTRA_COMPAT_TOOLS_PATH:/mnt/games_disk/SteamLibrary/compatibilitytools.d
+
 neofetch

@@ -1,26 +1,26 @@
 window:
   dynamic_padding: true
   padding:
-    x: 6
+    x: 15
     y: 6
 
 font:
   normal:
-    # family: JetBrainsMono Nerd Font
-    # family: JetBrainsMono Nerd Font
-    family: JetBrainsMono Nerd Font
+    # family: Iosevka
+    # family: Iosevka
+    family: Iosevka
 
   bold:
-    # family: JetBrainsMono Nerd Font
-    family: JetBrainsMono Nerd Font
+    # family: Iosevka
+    family: Iosevka
 
   italic:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka
 
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka
 
-  size: 11.5
+  size: 12.5
 
 # Colors (Gruvbox dark)
 colors:

@@ -11,6 +11,10 @@ vim.g.colors_name = "gruvbox-flat"
 -- vim.g.gruvbox_italic_comments = false
 vim.g.gruvbox_italic_keywords = false
 
+vim.g.gruvbox_material_background = "soft"
+vim.g.gruvbox_material_transparent_background = 1
+
+
 -- vim.g.colors_name = "nord"
 
 -- vim.g.nord_contrast = true

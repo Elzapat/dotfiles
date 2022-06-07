@@ -1,10 +1,10 @@
 fonts=(
   # "CozetteVector:9.5"
   # "SauceCodePro Nerd Font:8.5"
-  "JetBrainsMono Nerd Font:7.5"
+  # "JetBrainsMono Nerd Font:7.5"
   # "Hasklug Nerd Font:8.5"
   # "Iosevka:8.5"
-  # "VictorMono Nerd Font:8.5"
+  "VictorMono Nerd Font:8.5"
   # "TerminessTTF Nerd Font:9.5"
 )
 
@@ -14,9 +14,9 @@ if [ "$hostname" = "morgan-desktop" ]; then
   fonts=(
     # "CozetteVector:9.5"
     # "SauceCodePro Nerd Font:8.5"
-    "JetBrainsMono Nerd Font:11.5"
+    # "JetBrainsMono Nerd Font:11.5"
     # "Hasklug Nerd Font:12.5"
-    # "Iosevka:12.5"
+    "Iosevka:12.5"
     # "VictorMono Nerd Font:13.0"
     # "TerminessTTF Nerd Font:9.5"
   )
