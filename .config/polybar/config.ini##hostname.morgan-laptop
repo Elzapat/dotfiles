@@ -55,7 +55,7 @@ font-2 = "feather:size=11;3"
 tray-position = right
 ; tray-detached = false
 
-modules-left = i3 sep github_token sep cpu memory filesystem
+modules-left = i3 sep github_token sep cpu cpu-temp memory filesystem
 modules-center = spotify sep date
 modules-right = pulseaudio sep backlight sep battery
 
@@ -65,7 +65,7 @@ card = amdgpu_bl0
 use-actual-brightness = true
 format = %{F#FDD835} <label>
 format-underline = ${color.yellow}
-label = %{F${color.foreground}%percentage%%
+label = %{F#ebdbb2}%percentage%%
 
 [module/battery]
 type = internal/battery
@@ -87,11 +87,11 @@ format-discharging-underline = ${color.indigo}
 ; ramp-capacity-2 = %{F#FDD835}
 ; ramp-capacity-3 = %{F#B9C244}
 ; ramp-capacity-4 = %{F#61C766}
-ramp-capacity-0 = %{F#EC7875}  %{F${color.foreground}
-ramp-capacity-1 = %{F#E57C46}  %{F${color.foreground}
-ramp-capacity-2 = %{F#FDD835}  %{F${color.foreground}
-ramp-capacity-3 = %{F#B9C244}  %{F${color.foreground}
-ramp-capacity-4 = %{F#61C766}  %{F${color.foreground}
+ramp-capacity-0 = %{F#EC7875}  %{F#ebdbb2}
+ramp-capacity-1 = %{F#E57C46}  %{F#ebdbb2}
+ramp-capacity-2 = %{F#FDD835}  %{F#ebdbb2}
+ramp-capacity-3 = %{F#B9C244}  %{F#ebdbb2}
+ramp-capacity-4 = %{F#61C766}  %{F#ebdbb2}
 
 
 [module/network]
