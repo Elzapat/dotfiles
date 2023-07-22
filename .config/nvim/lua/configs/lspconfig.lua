@@ -1,84 +1,41 @@
--- local M = {}
--- 
--- function M.show_line_diagnostics()
---   local opts = {
---     focusable = false,
---     close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
---     border = "rounded",
---     source = "always",
---     prefix = " "
---   }
---   vim.diagnostic.open_float(nil, opts)
--- end
--- 
--- local custom_attach = function(client, bufnr)
---   local function buf_set_keymap(...)
---     vim.api.nvim_buf_set_keymap(bufnr, ...)
---   end
--- 
---   -- Mappings.
---   local opts = { noremap = true, silent = true }
---   buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
---   buf_set_keymap("n", "<C-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
---   buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
---   buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
---   buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
---   buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
---   buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
---   buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
---   buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
---   buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
---   buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
---   buf_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setqflist({open = true})<CR>", opts)
---   buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
--- 
---   vim.cmd([[
---     autocmd CursorHold <buffer> lua require('plugins.lspconfig').show_line_diagnostics()
---   ]])
--- 
---   -- Set some key bindings conditional on server capabilities
---   if client.resolved_capabilities.document_formatting then
---     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
---   end
---   if client.resolved_capabilities.document_range_formatting then
---     buf_set_keymap("x", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>", opts)
---   end
--- 
---   -- The blow command will highlight the current variable and its usages in the buffer.
---   if client.resolved_capabilities.document_highlight then
---     vim.cmd([[
---       hi link LspReferenceRead Visual
---       hi link LspReferenceText Visual
---       hi link LspReferenceWrite Visual
---       augroup lsp_document_highlight
---         autocmd! * <buffer>
---         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
---         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
---       augroup END
---     ]])
---   end
--- 
---   if vim.g.logging_level == 'debug' then
---     local msg = string.format("Language server %s started!", client.name)
---     vim.notify(msg, 'info', {title = 'Nvim-config'})
---   end
--- end
--- 
 local nvim_lsp = require("lspconfig")
+local pid = vim.fn.getpid()
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'dartls', 'tsserver', 'pyright', 'cssls', 'hls' }
+local servers = { 'clangd', 'dartls', 'tsserver', 'pyright', 'cssls', 'hls', 'omnisharp' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     -- on_attach = custom_attach,
     capabilities = capabilities,
   }
 end
+
+-- Add C# language server
+-- local omnisharp_bin = "/home/morgan/software/omnisharp/omnisharp/run"
+-- require("lspconfig").omnisharp.setup {
+--   cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+--   root_dir = nvim_lsp.util.root_pattern("*.csproj","*.sln"),
+--   capabilities = capabilities,
+-- }
+
+omnisharp_bin = "/home/morgan/software/omnisharp/omnisharp/OmniSharp.exe"
+require("lspconfig").omnisharp.setup {
+  cmd = { "mono", omnisharp_bin, "--languageserver","--hostPID", tostring(pid) },
+  filetypes = { "cs", "vb" },
+  init_options = {},
+  on_new_config = function(new_config, new_root_dir)
+    if new_root_dir then
+      table.insert(new_config.cmd, '-s')
+      table.insert(new_config.cmd, new_root_dir)
+    end
+  end,
+  root_dir = nvim_lsp.util.root_pattern("*.sln");
+}
 
 -- nvim_lsp["rls"].setup {
 --   cmd = {"rustup", "run", "nightly", "rls"},
@@ -207,3 +164,76 @@ vim.diagnostic.config({
 -- 
 -- Change border of documentation hover window, See https://github.com/neovim/neovim/pull/13998.
 -- return M
+--
+
+
+
+
+
+
+-- local M = {}
+-- 
+-- function M.show_line_diagnostics()
+--   local opts = {
+--     focusable = false,
+--     close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+--     border = "rounded",
+--     source = "always",
+--     prefix = " "
+--   }
+--   vim.diagnostic.open_float(nil, opts)
+-- end
+-- 
+-- local custom_attach = function(client, bufnr)
+--   local function buf_set_keymap(...)
+--     vim.api.nvim_buf_set_keymap(bufnr, ...)
+--   end
+-- 
+--   -- Mappings.
+--   local opts = { noremap = true, silent = true }
+--   buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+--   buf_set_keymap("n", "<C-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+--   buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+--   buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+--   buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+--   buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+--   buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
+--   buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+--   buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+--   buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+--   buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+--   buf_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setqflist({open = true})<CR>", opts)
+--   buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+-- 
+--   vim.cmd([[
+--     autocmd CursorHold <buffer> lua require('plugins.lspconfig').show_line_diagnostics()
+--   ]])
+-- 
+--   -- Set some key bindings conditional on server capabilities
+--   if client.resolved_capabilities.document_formatting then
+--     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+--   end
+--   if client.resolved_capabilities.document_range_formatting then
+--     buf_set_keymap("x", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>", opts)
+--   end
+-- 
+--   -- The blow command will highlight the current variable and its usages in the buffer.
+--   if client.resolved_capabilities.document_highlight then
+--     vim.cmd([[
+--       hi link LspReferenceRead Visual
+--       hi link LspReferenceText Visual
+--       hi link LspReferenceWrite Visual
+--       augroup lsp_document_highlight
+--         autocmd! * <buffer>
+--         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+--         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+--       augroup END
+--     ]])
+--   end
+-- 
+--   if vim.g.logging_level == 'debug' then
+--     local msg = string.format("Language server %s started!", client.name)
+--     vim.notify(msg, 'info', {title = 'Nvim-config'})
+--   end
+-- end
+-- 

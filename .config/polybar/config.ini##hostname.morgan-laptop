@@ -8,6 +8,8 @@ margin-top = 10
 ; wm-restack = i3
 
 [bar/main]
+enable-ipc = true
+
 monitor = ${env:MONITOR:}
 monitor-strict = false
 bottom = false
@@ -55,7 +57,7 @@ font-2 = "feather:size=11;3"
 tray-position = right
 ; tray-detached = false
 
-modules-left = i3 sep github_token sep cpu cpu-temp memory filesystem
+modules-left = i3 sep github_token uqac_password keyboard_toggle cycle_power_mode sep cpu cpu-temp memory filesystem
 modules-center = spotify sep date
 modules-right = pulseaudio sep backlight sep battery
 

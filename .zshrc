@@ -32,13 +32,22 @@ export TERM=xterm-256color
 export EDITOR=nvim
 export QT_STYLE_OVERRIDE=adwaita
 
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
+
 export MANPAGER="less -s -M +Gg"
 export LESS="--RAW-CONTROL-CHARS"
 less_colors=$HOME/.scripts/.LESS_TERMCAP
 [[ -f $lesscolors ]] && . $lesscolors
 
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
-  [ -z "${TMUX}" ] && { tmux attach || tmux new -s "tmux"; } >/dev/null 2>&1
+# export P4IGNORE=p4ignore.txt
+# export P4CONFIG=p4config.txt
+
+#if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
+#  [ -z "${TMUX}" ] && { tmux attach || tmux new -s "tmux"; } >/dev/null 2>&1
+#fi
+# zellij options --session-name mitsuki
+if [ -n "${DISPLAY}" ]; then
+  eval "$(zellij setup --generate-auto-start zsh | sed 's/zellij$/zellij options --session-name mitsuki/g')"
 fi
 
 if [ "$(command -v exa)" ]; then
@@ -59,7 +68,11 @@ if [ "$(command -v bat)" ]; then
 fi
 
 source "$HOME/.cargo/env"
-setxkbmap -option caps:swapescape
+# if ! xinput | grep "Akko"; then
+#   cd .
+# else
+#   setxkbmap -option caps:swapescape
+# fi
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
@@ -72,5 +85,8 @@ complete -o nospace -C "/usr/bin/symfony self:autocomplete --zsh" symfony
 bash $HOME/.scripts/choose_random_font.sh
 
 export STEAM_EXTRA_COMPAT_TOOLS_PATH=$STEAM_EXTRA_COMPAT_TOOLS_PATH:/mnt/games_disk/SteamLibrary/compatibilitytools.d
+# export PATH=/home/morgan/software/android-sdk/:/home/morgan/software/android-sdk/bin:$PATH
+# neofetch
+# wthrr -f d
 
-neofetch
+pokemon-colorscripts --random --no-title

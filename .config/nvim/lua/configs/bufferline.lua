@@ -2,82 +2,85 @@ local bg = "#202020"
 
 require("bufferline").setup {
   options = {
-    indicator_icon = " ",
+    -- indicator_icon = " ",
+    indicator = {
+      icon = " "
+    },
     show_tab_indicators = false,
     show_close_icon = false,
     separator_style = { "", "" },
   },
   highlights = {
     background = {
-      guibg = bg,
+      bg = bg,
     },
     tab = {
-      guibg = bg
+      bg = bg
     },
     tab_selected = {
-      guibg = bg
+      bg = bg
     },
     tab_close = {
-      guibg = bg
+      bg = bg
     },
     close_button = {
-      guibg = bg
+      bg = bg
     },
     close_button_visible = {
-      guibg = bg
+      bg = bg
     },
     close_button_selected = {
-      guibg = bg
+      bg = bg
     },
     buffer_visible = {
-      guibg = bg,
+      bg = bg,
     },
     buffer_selected = {
-      guibg = bg,
+      bg = bg,
     },
     separator_selected = {
-      guibg = bg
+      bg = bg
     },
     separator_visible = {
-      guibg = bg
+      bg = bg
     },
     separator = {
-      guibg = bg
+      bg = bg
     },
     indicator_selected = {
-      guifg =  bg,
-      guibg =  bg,
+      fg =  bg,
+      bg =  bg,
     },
     fill = {
-      guibg = bg,
-      guifg = bg,
+      bg = bg,
+      fg = bg,
     },
     modified = {
-      guibg = bg,
+      bg = bg,
     },
     modified_visible = {
-      guibg = bg,
+      bg = bg,
     },
     modified_selected = {
-      guibg = bg,
+      bg = bg,
     },
     pick = {
-      guibg = bg,
+      bg = bg,
     },
     pick_selected = {
-      guibg = bg,
+      bg = bg,
     },
     pick_visible = {
-      guibg = bg,
+      bg = bg,
     },
     duplicate_selected = {
-      guibg = bg,
+      bg = bg,
     },
     duplicate_visible = {
-      guibg = bg,
+      bg = bg,
     },
     duplicate = {
-      guibg = bg,
+      bg = bg,
     },
   }
 }

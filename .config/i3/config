@@ -17,6 +17,8 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsyn $mod+Shift+p exec /home/morgan/.screenlayout/canada.sh 
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
@@ -26,10 +28,10 @@ bindcode $mod+40 exec $HOME/.scripts/launcher.sh
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+m focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -38,10 +40,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+m move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -50,7 +52,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -89,28 +91,49 @@ set $ws9 "9"
 set $unknown_workspace "10"
 
 # switch to workspace
-bindsym $mod+ampersand workspace number $terminal_workspace
-bindsym $mod+eacute workspace number $browser_workspace
-bindsym $mod+quotedbl workspace number $game_workspace
-bindsym $mod+apostrophe workspace number $chat_workspace
-bindsym $mod+parenleft workspace number $file_workspace
-bindsym $mod+minus workspace number $media_workspace
-bindsym $mod+egrave workspace number $ws7
-bindsym $mod+underscore workspace number $ws8
-bindsym $mod+ccedilla workspace number $ws9
-bindsym $mod+agrave workspace number $unknown_workspace
+# bindsym $mod+ampersand workspace number $terminal_workspace
+# bindsym $mod+eacute workspace number $browser_workspace
+# bindsym $mod+quotedbl workspace number $game_workspace
+# bindsym $mod+apostrophe workspace number $chat_workspace
+# bindsym $mod+parenleft workspace number $file_workspace
+# bindsym $mod+minus workspace number $media_workspace
+# bindsym $mod+egrave workspace number $ws7
+# bindsym $mod+underscore workspace number $ws8
+# bindsym $mod+ccedilla workspace number $ws9
+# bindsym $mod+agrave workspace number $unknown_workspace
+bindsym $mod+1 workspace number $terminal_workspace
+bindsym $mod+2 workspace number $browser_workspace
+bindsym $mod+3 workspace number $game_workspace
+bindsym $mod+4 workspace number $chat_workspace
+bindsym $mod+5 workspace number $file_workspace
+bindsym $mod+6 workspace number $media_workspace
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $unknown_workspace
 
 # move focused container to workspace
-bindsym $mod+Shift+ampersand move container to workspace number $terminal_workspace
-bindsym $mod+Shift+eacute move container to workspace number $browser_workspace
-bindsym $mod+Shift+quotedbl move container to workspace number $game_workspace
-bindsym $mod+Shift+apostrophe move container to workspace number $chat_workspace
+# bindsym $mod+Shift+ampersand move container to workspace number $terminal_workspace
+# bindsym $mod+Shift+eacute move container to workspace number $browser_workspace
+# bindsym $mod+Shift+quotedbl move container to workspace number $game_workspace
+# bindsym $mod+Shift+apostrophe move container to workspace number $chat_workspace
+# bindsym $mod+Shift+5 move container to workspace number $file_workspace
+# bindsym $mod+Shift+minus move container to workspace number $media_workspace
+# bindsym $mod+Shift+egrave move container to workspace number $ws7
+# bindsym $mod+Shift+underscore move container to workspace number $ws8
+# bindsym $mod+Shift+ccedilla move container to workspace number $ws9
+# bindsym $mod+Shift+agrave move container to workspace number $unknown_workspace
+
+bindsym $mod+Shift+1 move container to workspace number $terminal_workspace
+bindsym $mod+Shift+2 move container to workspace number $browser_workspace
+bindsym $mod+Shift+3 move container to workspace number $game_workspace
+bindsym $mod+Shift+4 move container to workspace number $chat_workspace
 bindsym $mod+Shift+5 move container to workspace number $file_workspace
-bindsym $mod+Shift+minus move container to workspace number $media_workspace
-bindsym $mod+Shift+egrave move container to workspace number $ws7
-bindsym $mod+Shift+underscore move container to workspace number $ws8
-bindsym $mod+Shift+ccedilla move container to workspace number $ws9
-bindsym $mod+Shift+agrave move container to workspace number $unknown_workspace
+bindsym $mod+Shift+6 move container to workspace number $media_workspace
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+00 move container to workspace number $unknown_workspace
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -186,11 +209,11 @@ focus_follows_mouse no
 # Gaps
 # for_window [class=".*"] gaps inner all set 8
 # for_window [class=".*"] gaps outer all set 3
-for_window [class=".*"] gaps inner all set 0
-for_window [class=".*"] gaps outer all set 0
+# for_window [class=".*"] gaps inner all set 0
+# for_window [class=".*"] gaps outer all set 0
 # for_window [class=".*"] border pixel 3
 for_window [class=".*"] border pixel 0
-# default_border pixel 2
+default_border pixel 2
 # smart_gaps inverse_outer
 
 # Class                 border  bground text    indicator child_border
@@ -201,7 +224,7 @@ client.urgent           #EC7875 #202020 #EC7875 #FF5555   #FF5555
 client.placeholder      #282A36 #202020 #F8F8F2 #282A36   #282A36
 client.background       #202020
 
-exec_always --no-startup-id setxkbmap fr
+exec_always --no-startup-id setxkbmap us -variant altgr-intl
 # bindsym $mod+k setxkbmap us
 # bindsym $mod+f setxkbmap fr
 
@@ -231,30 +254,41 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # Monitors layout
-exec xrandr --output DVI-D-0 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-1 --off
+# exec xrandr --output DVI-D-0 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-1 --off
+
+# exec xrandr --output eDP-1 --mode 1920x1200 --pos 0x0 --rotate normal --output DP-1 --primary --mode 1680x1050 --pos 1920x0 --rotate normal --output DP-2 --off --output HDMI-1-0 --off --output DP-1-0 --off --output DP-1-1 --off --output DP-1-2 --off     
+exec ~/.screenlayout/canada.sh
 
 # Assign workspaces to monitors
-set $monitor_middle "DP-0"
-set $monitor_left "HDMI-0"
-set $monitor_right "DVI-D-0"
-workspace $terminal_workspace output $monitor_middle
+set $monitor_left "eDP-1"
+set $monitor_right "DP-1"
+# set $monitor_right "HDMI-1-0"
+workspace $terminal_workspace output $monitor_right
 workspace $browser_workspace output $monitor_right
-workspace $game_workspace output $monitor_middle
+workspace $game_workspace output $monitor_right
 workspace $chat_workspace output $monitor_left
-workspace $file_workspace output $monitor_middle
-workspace $media_workspace output $monitor_middle
+workspace $file_workspace output $monitor_right
+workspace $media_workspace output $monitor_right
 
 # Allow steam extra windows to be floating
-for_window [class="^Steam$" title="^Friends$"] floating enable
-for_window [class="^Steam$" title="Steam - News"] floating enable
-for_window [class="^Steam$" title=".* - Chat"] floating enable
-for_window [class="^Steam$" title="^Settings$"] floating enable
-for_window [class="^Steam$" title=".* - event started"] floating enable
-for_window [class="^Steam$" title=".* CD key"] floating enable
-for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
-for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
-for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
-for_window [title="^Steam Keyboard$"] floating enable
+for_window [class="^steam$" title="^Friends$"] floating enable
+for_window [class="^steam$" title="Steam - News"] floating enable
+for_window [class="^steam$" title=".* - Chat"] floating enable
+for_window [class="^steam$" title="^Settings$"] floating enable
+for_window [class="^steam$" title=".* - event started"] floating enable
+for_window [class="^steam$" title=".* CD key"] floating enable
+for_window [class="^steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^[Ss]team Keyboard$"] floating enable
+
+# Allow Unreal Engine extra windows to be floating
+for_window [class="^UnrealEditor$" title="^Check Out Assets$"] floating enable
+for_window [class="^UnrealEditor$" title="^Open File$"] floating enable
+for_window [class="^UnrealEditor$" title="^Delete Assets$"] floating enable
+for_window [class="^UnrealEditor$" title="^Save Level As$"] floating enable
+for_window [class="^UnrealEditor$" title="^New Level$"] floating enable
+for_window [class="^UnrealEditor$" title="^Save Content$"] floating enable
 
 for_window [title="Origin"] floating enable
 # for_window [title="^.*plasma.*$"] kill
@@ -275,16 +309,19 @@ assign [class="^.*Minecraft.*$"] $game_workspace
 assign [class="^signal$"] $chat_workspace
 assign [class="^dolphin$"] $file_workspace
 assign [class="^Pinentry-gtk-2"] $terminal_workspace
+assign [class="^.*Unity.*$"] $game_workspace
+assign [class="^.*unity.*$"] $game_workspace
 
 for_window [class="^Spotify$"] move to workspace $media_workspace
 # for_window [class="^(Navigator|firefox)$"] move to workspace $browser_workspace
 for_window [class="^vivaldi-stable$"] move to workspace $browser_workspace
 
 # Open windows on startup
+exec --no-startup-id rm -r ~/.config/spotify
 exec --no-startup-id spotify
 # exec --no-startup-id firefox
 exec --no-startup-id discord
-exec --no-startup-id steam
+exec --no-startup-id prime-run steam
 exec --no-startup-id signal-desktop
 exec --no-startup-id alacritty
 exec --no-startup-id firefox
@@ -293,9 +330,9 @@ exec --no-startup-id firefox
 exec --no-startup-id flameshot
 
 # Move workspaces to another monitor bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
-bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
-bindsym $mod+Ctrl+eacute move workspace to output $monitor_middle
-bindsym $mod+Ctrl+quotedbl move workspace to output $monitor_right
+bindsym $mod+Ctrl+1 move workspace to output $monitor_left
+bindsym $mod+Ctrl+2 move workspace to output $monitor_right
+# bindsym $mod+Ctrl+quotedbl move workspace to output $monitor_right
 
 # Notification daemon so Discord doesn't freeze
 exec --no-startup-id dunst
@@ -308,6 +345,9 @@ exec_always feh --converstion-timeout 1 --bg-fill /home/morgan/Pictures/wallpape
 
 # Mouse sensitivty
 exec_always $HOME/.scripts/mouse_accel.sh -0.85
+
+# Script that forces unity repaint by going fullscreen when workspace changes
+exec_always --no-startup-id $HOME/.scripts/i3-unity-fix.py
 # exec_always xinput --set-prop 18 'libinput Accel Speed' <acceleration factor>
 
 # take a screenshot of a screen region and copy it to a clipboard

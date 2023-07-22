@@ -1,2 +1,2 @@
 #!/bin/bash
-sensors 2> /dev/null | grep "Tctl" | tr -d '+' | awk '{print $2}'
+sensors 2> /dev/null | grep "Package" | tr -d '+' | awk '{print $4}'

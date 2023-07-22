@@ -1,12 +1,15 @@
+vim.o.background = "dark"
+vim.opt.termguicolors = true
+
 vim.g.gruvbox_flat_style = "dark"
 vim.g.gruvbox_theme = {
   BufferLineFill = {
     bg = "#202020"
   },
 }
-vim.g.gruvbox_transparent =  true
+vim.g.gruvbox_transparent = true
 
-vim.g.colors_name = "gruvbox-flat"
+vim.g.colors_name = "gruvbox"
 
 -- vim.g.gruvbox_italic_comments = false
 vim.g.gruvbox_italic_keywords = false
@@ -14,6 +17,15 @@ vim.g.gruvbox_italic_keywords = false
 vim.g.gruvbox_material_background = "soft"
 vim.g.gruvbox_material_transparent_background = 1
 
+require("gruvbox").setup({
+  contrast = "soft",
+  overrides = {
+    Background = { bg = "#202020" },
+    SignColumn = { bg = "#202020" },
+  },
+})
+
+-- vim.g.NeoSolarized_termtrans = 1
 
 -- vim.g.colors_name = "nord"
 

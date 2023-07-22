@@ -4,12 +4,13 @@
 	signkey = E312D8EA2672C6A1
 [merge]
 	tool = nvimdiff
+	ff = no
 [init]
 	defaultBranch = main
 [credential]
 	credentialStore = gpg
 	helper = manager-core
 [pull]
-	rebase = false
+	rebase = true
 [comit]
 	gpgsign = true

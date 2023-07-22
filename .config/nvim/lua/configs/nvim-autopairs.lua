@@ -14,6 +14,8 @@ npairs.setup {
   -- fast_wrap = {},
 }
 
+npairs.add_rule(Rule("{ ", " }", "lua"))
+
 -- Matching angle bracket in Rust or C++
 npairs.add_rule(
   Rule("<", ">", { "rust", "cpp" })

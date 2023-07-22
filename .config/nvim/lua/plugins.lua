@@ -37,8 +37,8 @@ local packer = require("packer").startup(function(use)
 		-- 	end,
 		-- }
 	--}
-	use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-	use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+	-- use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+	-- use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
 	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 	use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
@@ -56,10 +56,6 @@ local packer = require("packer").startup(function(use)
 		"preservim/vim-markdown",
 		ft = { "markdown" }
 	}
-
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-cmdline'
 
 	use "kyazdani42/nvim-web-devicons"
 
@@ -150,16 +146,20 @@ local packer = require("packer").startup(function(use)
 	}
 
 	-- Themes
-	use {
-		"ellisonleao/gruvbox.nvim",
-		requires = { "rktjmp/lush.nvim" }
-	}
-	use "ishan9299/nvim-solarized-lua"
-	use "eddyekofo94/gruvbox-flat.nvim"
-	use "folke/tokyonight.nvim"
-	use "nanotech/jellybeans.vim"
-	use "shaunsingh/nord.nvim"
+	use "ellisonleao/gruvbox.nvim"
+	-- use "ishan9299/nvim-solarized-lua"
+	-- use "eddyekofo94/gruvbox-flat.nvim"
+	-- use "folke/tokyonight.nvim"
+	-- use "nanotech/jellybeans.vim"
+	-- use "shaunsingh/nord.nvim"
 	use "sainnhe/gruvbox-material"
+	use "jacoborus/tender.vim"
+	use {
+		'shaunsingh/oxocarbon.nvim',
+		run = './install.sh',
+	}
+	use "Tsuzat/NeoSolarized.nvim"
+	use "savq/melange"
 
 	use "dstein64/vim-startuptime"
 
@@ -169,7 +169,35 @@ local packer = require("packer").startup(function(use)
 		run = function() vim.fn['firenvim#install'](0) end
 	}
 
-	use 'karb94/neoscroll.nvim'
+	use "karb94/neoscroll.nvim"
+
+	-- use "ahmedkhalf/project.nvim"
+
+	use 'williamboman/mason.nvim'    
+  use 'williamboman/mason-lspconfig.nvim'
+
+	use 'simrat39/rust-tools.nvim'
+
+	-- Completion framework:
+	use 'hrsh7th/nvim-cmp' 
+
+	-- LSP completion source:
+	use 'hrsh7th/cmp-nvim-lsp'
+
+	-- Useful completion sources:
+	use 'hrsh7th/cmp-nvim-lua'
+	use 'hrsh7th/cmp-nvim-lsp-signature-help'
+	use 'hrsh7th/cmp-vsnip'                             
+	use 'hrsh7th/cmp-path'                              
+	use 'hrsh7th/cmp-cmdline'                              
+	use 'hrsh7th/cmp-buffer'                            
+	use 'hrsh7th/vim-vsnip'
+
+	use 'puremourning/vimspector'
+
+	use 'voldikss/vim-floaterm'
+
+	use 'https://github.com/elkowar/yuck.vim'
 end)
 
 require("configs.nvim-autopairs")
@@ -184,9 +212,13 @@ require("configs.firenvim")
 require("configs.bufferline")
 require("configs.lualine")
 require("configs.nvim-treesitter")
--- require("configs.rust-tools") 
+require("configs.rust-tools") 
+require("configs.cmp")
 
 require("nvim_comment").setup()
 require("neoscroll").setup()
+-- require("project_nvim").setup()
+require("mason").setup()
+require("mason-lspconfig").setup()
 
 return packer

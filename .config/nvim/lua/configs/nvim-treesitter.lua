@@ -1,5 +1,6 @@
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = "all",
+	auto_install = true,
 	sync_install = false,
 	highlight = {
 		enable = true,
@@ -8,5 +9,10 @@ require'nvim-treesitter.configs'.setup {
 	indent = {
 		enable = true,
 		disable = { "c" }
+	},
+	rainbow = {
+		enable = true,
+		extended_mode = true,
+		max_file_lines = nil,
 	}
 }
