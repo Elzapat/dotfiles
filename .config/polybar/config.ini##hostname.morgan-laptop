@@ -63,10 +63,10 @@ modules-right = pulseaudio sep backlight sep battery
 
 [module/backlight]
 type = internal/backlight
-card = amdgpu_bl0
+card = intel_backlight
 use-actual-brightness = true
 format = %{F#FDD835} <label>
-format-underline = ${color.yellow}
+; format-underline = ${color.yellow}
 label = %{F#ebdbb2}%percentage%%
 
 [module/battery]
@@ -79,11 +79,11 @@ full-at = 99
 format-charging = <ramp-capacity><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 label-charging = %percentage%% %consumption%W
-label-charging-underline = ${color.green}
-format-charging-underline = ${color.green}
+; label-charging-underline = ${color.green}
+; format-charging-underline = ${color.green}
 label-discharging = %percentage%% %consumption%W
-label-discharging-underline = ${color.indigo}
-format-discharging-underline = ${color.indigo}
+; label-discharging-underline = ${color.indigo}
+; format-discharging-underline = ${color.indigo}
 ; ramp-capacity-0 = %{F#EC7875}
 ; ramp-capacity-1 = %{F#E57C46}
 ; ramp-capacity-2 = %{F#FDD835}
@@ -103,7 +103,7 @@ interval = 1.0
 accumulate-stats = true
 unknown-as-up = true
 
-format-underline = ${color.cyan}
+; format-underline = ${color.cyan}
 
 format-connected = <label-connected>
 ; format-connected-prefix = 
