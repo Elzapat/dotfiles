@@ -27,12 +27,6 @@ vim.opt.encoding = "UTF-8"
 
 vim.opt.hidden = true
 
-vim.cmd "autocmd CmdlineEnter /,? :set hlsearch"
-vim.cmd "autocmd CmdlineLeave /,? :set nohlsearch"
-
-vim.cmd "autocmd BufEnter *.tex set spell"
-vim.cmd "autocmd BufEnter *.tex set spelllang+=fr"
-
 vim.cmd "syntax enable"
 vim.cmd "filetype indent on"
 -- vim.cmd [[ autocmd BufEnter * set indentexpr= ]]
@@ -58,11 +52,6 @@ vim.o.shiftwidth = 4
 -- ]]
 
 vim.cmd[[
-	autocmd BufRead *.rs,*.c,*.cpp,*.html,*.hbs set tabstop=4
-	autocmd BufRead *.rs,*.c,*.cpp,*.html,*.hbs set shiftwidth=4
-]]
-
-vim.cmd[[
 	set indentkeys+=0(
 	set cinkeys+=0(
 	set cinoptions+=(1s
@@ -80,12 +69,12 @@ vim.cmd[[let g:vim_markdown_math = 1]]
 -- updatetime: set updatetime for CursorHold
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true}
-vim.api.nvim_set_option('updatetime', 300) 
+vim.api.nvim_set_option('updatetime', 300)
 
 -- Fixed column for diagnostics to appear
 -- Show autodiagnostic popup on cursor hover_range
--- Goto previous / next diagnostic warning / error 
--- Show inlay_hints more frequently 
+-- Goto previous / next diagnostic warning / error
+-- Show inlay_hints more frequently
 -- vim.cmd([[
 -- 	set signcolumn=yes
 -- 	autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })

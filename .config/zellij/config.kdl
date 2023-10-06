@@ -16,6 +16,7 @@ themes {
         black "#202020"
         red "#ea6962"
         // green "#a9b665"
+        // green "#fdd835"
         green "#fdd835"
         yellow "#fdd835"
         blue "#458588"
@@ -35,6 +36,19 @@ themes {
         cyan 104 157 106
         white 251 241 199
         orange 214 93 14
+    }
+    retard {
+        fg 255 0 0
+        bg 255 0 0
+        black 255 0 0
+        red 255 0 0
+        green 253 216 53
+        yellow 0 0 0
+        blue 0 0 0
+        magenta 0 0 0
+        cyan 0 0 0
+        white 0 0 0
+        orange 0 0 0
     }
 }
 
