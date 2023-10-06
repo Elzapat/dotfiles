@@ -73,6 +73,7 @@ source "$HOME/.cargo/env"
 # else
 #   setxkbmap -option caps:swapescape
 # fi
+setxkbmap -option caps:swapescape
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"

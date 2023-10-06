@@ -1,7 +1,6 @@
 // pane_frames false
 // copy_command "xclip -selection clipboard"
 default_layout "compact"
-theme "mitsuki"
 mouse_mode false
 
 env {
@@ -39,6 +38,8 @@ themes {
     }
 }
 
+theme "mitsuki"
+
 ui {
     pane_frames {
         rounded_corners true
@@ -53,6 +54,7 @@ keybinds {
         bind "Alt p" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "Alt o" { NewPane "Down"; SwitchToMode "Normal"; }
         unbind "Ctrl h"
+        unbind "Ctrl q"
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -183,7 +185,7 @@ keybinds {
     }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
+        // bind "Ctrl q" { Quit; }
         bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
