@@ -90,4 +90,6 @@ export STEAM_EXTRA_COMPAT_TOOLS_PATH=$STEAM_EXTRA_COMPAT_TOOLS_PATH:/mnt/games_d
 # neofetch
 # wthrr -f d
 
-pokemon-colorscripts --random --no-title
+# pokemon-colorscripts --random --no-title
+
+export QSYS_ROOTDIR="/home/morgan/.cache/yay/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"

@@ -23,6 +23,13 @@ end
 --   capabilities = capabilities,
 -- }
 
+-- Setup vhdl-tool 
+require("lspconfig").vhdl_tool.setup {
+  filetypes = { "vhdl", "vhd" },
+  cmd = { "vhdl-tool" },
+  capabilities = capabilities
+}
+
 omnisharp_bin = "/home/morgan/software/omnisharp/omnisharp/OmniSharp.exe"
 require("lspconfig").omnisharp.setup {
   cmd = { "mono", omnisharp_bin, "--languageserver","--hostPID", tostring(pid) },

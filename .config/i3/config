@@ -17,7 +17,7 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsyn $mod+Shift+p exec /home/morgan/.screenlayout/canada.sh
+bindsyn $mod+Shift+p exec /home/morgan/.screenlayout/screen_layout.sh
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
@@ -258,18 +258,22 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 # Monitors layout
 # exec xrandr --output DVI-D-0 --mode 1920x1080 --pos 3200x0 --rotate normal --output HDMI-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-0 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-1 --off
 
-# exec xrandr --output eDP-1 --mode 1920x1200 --pos 0x0 --rotate normal --output DP-1 --primary --mode 1680x1050 --pos 1920x0 --rotate normal --output DP-2 --off --output HDMI-1-0 --off --output DP-1-0 --off --output DP-1-1 --off --output DP-1-2 --off
-exec ~/.screenlayout/canada.sh
+# exec xrandr --output eDP-1 --mode 1920x1200 --pos 0x0 --rotate normal --output DP-1 --primary --mode 1680x1050 --pos 1920x0 --rotate normal --output DP-2 --off --output HDMI-1-0 --off --output DP-1-0 --off --output DP-1-1 --off --output DP-1-2 --off     
+exec ~/.screenlayout/screen_layout.sh
 
 # Assign workspaces to monitors
-set $monitor_left "eDP-1"
-set $monitor_right "DP-1"
+# set $monitor_left "eDP-1"
+# set $monitor_right "DP-1"
 # set $monitor_right "HDMI-1-0"
-workspace $terminal_workspace output $monitor_right
+set $monitor_middle "DP-0"
+set $monitor_left "HDMI-0"
+set $monitor_right "DVI-D-0"
+# workspace $terminal_workspace output $monitor_right
+workspace $terminal_workspace output $monitor_middle
 workspace $browser_workspace output $monitor_right
-workspace $game_workspace output $monitor_right
+workspace $game_workspace output $monitor_middle
 workspace $chat_workspace output $monitor_left
-workspace $file_workspace output $monitor_right
+workspace $file_workspace output $monitor_middle
 workspace $media_workspace output $monitor_right
 
 # Allow steam extra windows to be floating
@@ -303,8 +307,7 @@ assign [class="^vivaldi-sable$"] $browser_workspace
 assign [title=".*Vivaldi.*"] $browser_workspace
 assign [class="^discord$"] $chat_workspace
 assign [class="^Signal$"] $chat_workspace
-assign [class="^.*Steam.*$"] $game_workspace
-#assign [name="^.*Steam.*$"] $game_workspace
+assign [class="^.*steam.*$"] $game_workspace
 assign [class="^konsole$"] $terminal_workspace
 assign [class="^Alacritty$"] $terminal_workspace
 assign [class="^.*Minecraft.*$"] $game_workspace
@@ -319,11 +322,11 @@ for_window [class="^Spotify$"] move to workspace $media_workspace
 for_window [class="^vivaldi-stable$"] move to workspace $browser_workspace
 
 # Open windows on startup
-exec --no-startup-id rm -r ~/.config/spotify
+# exec --no-startup-id rm -r ~/.config/spotify
 exec --no-startup-id spotify
 # exec --no-startup-id firefox
 exec --no-startup-id discord
-exec --no-startup-id prime-run steam
+exec --no-startup-id steam
 exec --no-startup-id signal-desktop
 exec --no-startup-id alacritty
 exec --no-startup-id firefox
@@ -333,7 +336,8 @@ exec --no-startup-id flameshot
 
 # Move workspaces to another monitor bindsym $mod+Ctrl+ampersand move workspace to output $monitor_left
 bindsym $mod+Ctrl+1 move workspace to output $monitor_left
-bindsym $mod+Ctrl+2 move workspace to output $monitor_right
+bindsym $mod+Ctrl+2 move workspace to output $monitor_middle
+bindsym $mod+Ctrl+3 move workspace to output $monitor_right
 # bindsym $mod+Ctrl+quotedbl move workspace to output $monitor_right
 
 # Notification daemon so Discord doesn't freeze
