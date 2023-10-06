@@ -9,3 +9,4 @@ set statusbar-fg "#ebdbb2"
 
 set default-bg "#202020"
 
+set font "JetBrainsMono Nerd Font Mono"

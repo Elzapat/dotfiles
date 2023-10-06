@@ -53,7 +53,7 @@ local packer = require("packer").startup(function(use)
 	}
 
 	use {
-		"preservim/vim-markdown",
+		"ixru/nvim-markdown",
 		ft = { "markdown" }
 	}
 
@@ -202,7 +202,7 @@ end)
 
 require("configs.nvim-autopairs")
 require("configs.airline")
-require("configs.indent-blankline")
+-- require("configs.indent-blankline")
 require("configs.vim-closetag")
 require("configs.neoformat")
 require("configs.lspconfig")

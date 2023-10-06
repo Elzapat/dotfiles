@@ -82,3 +82,5 @@ vim.api.nvim_set_option('updatetime', 300)
 --
 -- vim.wo.foldmethod = 'expr'
 -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+--
+vim.g.vim_markdown_math = 1
