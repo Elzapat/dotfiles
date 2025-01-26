@@ -265,9 +265,12 @@ exec ~/.screenlayout/screen_layout.sh
 # set $monitor_left "eDP-1"
 # set $monitor_right "DP-1"
 # set $monitor_right "HDMI-1-0"
-set $monitor_middle "DP-0"
-set $monitor_left "HDMI-0"
-set $monitor_right "DVI-D-0"
+# set $monitor_left "HDMI-0"
+# set $monitor_middle "DP-0"
+# set $monitor_right "DVI-D-0"
+set $monitor_left "DisplayPort-4"
+set $monitor_middle "DisplayPort-1-2"
+set $monitor_right "HDMI-A-1-0"
 # workspace $terminal_workspace output $monitor_right
 workspace $terminal_workspace output $monitor_middle
 workspace $browser_workspace output $monitor_right
@@ -350,7 +353,7 @@ exec --no-startup-id clipit
 exec_always feh --converstion-timeout 1 --bg-fill /home/morgan/Pictures/wallpapers/minimalist1.jpg
 
 # Mouse sensitivty
-exec_always $HOME/.scripts/mouse_accel.sh -0.85
+exec_always $HOME/.scripts/mouse_accel.sh -0.25
 
 # Script that forces unity repaint by going fullscreen when workspace changes
 exec_always --no-startup-id $HOME/.scripts/i3-unity-fix.py
