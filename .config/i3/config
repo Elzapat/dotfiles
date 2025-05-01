@@ -353,7 +353,7 @@ exec --no-startup-id clipit
 exec_always feh --converstion-timeout 1 --bg-fill /home/morgan/Pictures/wallpapers/minimalist1.jpg
 
 # Mouse sensitivty
-exec_always $HOME/.scripts/mouse_accel.sh -0.25
+exec_always $HOME/.scripts/mouse_accel.sh -0.20
 
 # Script that forces unity repaint by going fullscreen when workspace changes
 exec_always --no-startup-id $HOME/.scripts/i3-unity-fix.py
